@@ -1,3 +1,5 @@
+using CSharp.UnitTesting.Api.Services;
+using CSharp.UnitTesting.Api.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +19,11 @@ namespace CSharp.UnitTesting.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IChannelService, ChannelService>();
+            services.AddScoped<IPlaylistService, PlaylistService>();
+            services.AddScoped<ISubscriptionService, SubscriptionService>();
+            services.AddScoped<IVideoService, VideoService>();
+
             services.AddControllers();
         }
 
