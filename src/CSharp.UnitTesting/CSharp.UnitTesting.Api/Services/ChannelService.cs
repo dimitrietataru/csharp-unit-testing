@@ -23,7 +23,7 @@ namespace CSharp.UnitTesting.Api.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Channel>> GetTopAsync(int count)
+        public Task<IEnumerable<Channel>> GetTopAsync(int limitResultCount)
         {
             throw new NotImplementedException();
         }

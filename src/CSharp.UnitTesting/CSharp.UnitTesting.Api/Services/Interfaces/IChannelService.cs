@@ -7,6 +7,6 @@ namespace CSharp.UnitTesting.Api.Services.Interfaces
 {
     public interface IChannelService : IServiceBase<Channel, int>
     {
-        Task<IEnumerable<Channel>> GetTopAsync(int count);
+        Task<IEnumerable<Channel>> GetTopAsync(int limitResultCount);
     }
 }
