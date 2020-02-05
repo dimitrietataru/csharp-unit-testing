@@ -421,5 +421,119 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
             var result = Assert.IsType<BadRequestResult>(response);
             Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
         }
+
+        [Fact]
+        [Trait("HttpVerb", "DELETE")]
+        internal async Task GivenDeleteAsyncWhenDataExistThenDeletesData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.DeleteAsync(It.IsAny<int>()))
+                .Returns(Task.CompletedTask)
+                .Verifiable();
+
+            // Act
+            var response = await channelController.DeleteAsync(It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<NoContentResult>(response);
+            Assert.Equal((int)HttpStatusCode.NoContent, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "DELETE")]
+        internal async Task GivenDeleteAsyncWhenNoDataExistThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.DeleteAsync(It.IsAny<int>()))
+                .Throws<ApplicationException>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.DeleteAsync(It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<NotFoundResult>(response);
+            Assert.Equal((int)HttpStatusCode.NotFound, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "DELETE")]
+        internal async Task GivenDeleteAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.DeleteAsync(It.IsAny<int>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.DeleteAsync(It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<BadRequestResult>(response);
+            Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "DELETE")]
+        internal async Task GivenDeleteBulkAsyncWhenDataExistThenDeletesData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.DeleteBulkAsync(It.IsAny<ICollection<int>>()))
+                .Returns(Task.CompletedTask)
+                .Verifiable();
+
+            // Act
+            var response = await channelController.DeleteBulkAsync(It.IsAny<ICollection<int>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<NoContentResult>(response);
+            Assert.Equal((int)HttpStatusCode.NoContent, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "DELETE")]
+        internal async Task GivenDeleteBulkAsyncWhenNoDataExistThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.DeleteBulkAsync(It.IsAny<ICollection<int>>()))
+                .Throws<ApplicationException>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.DeleteBulkAsync(It.IsAny<ICollection<int>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<NotFoundResult>(response);
+            Assert.Equal((int)HttpStatusCode.NotFound, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "DELETE")]
+        internal async Task GivenDeleteBulkAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.DeleteBulkAsync(It.IsAny<ICollection<int>>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.DeleteBulkAsync(It.IsAny<ICollection<int>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<BadRequestResult>(response);
+            Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
+        }
     }
 }
