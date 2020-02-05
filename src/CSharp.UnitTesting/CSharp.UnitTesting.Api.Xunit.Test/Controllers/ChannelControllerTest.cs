@@ -60,5 +60,176 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
             var result = Assert.IsType<BadRequestResult>(response);
             Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
         }
+
+        [Fact]
+        [Trait("HttpVerb", "GET")]
+        internal async Task GivenGetByIdAsyncWhenDataExistThenReturnsData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.GetByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync(It.IsAny<Channel>())
+                .Verifiable();
+
+            // Act
+            var response = await channelController.GetByIdAsync(It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<OkObjectResult>(response);
+            Assert.Equal((int)HttpStatusCode.OK, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "GET")]
+        internal async Task GivenGetByIdAsyncWhenNoDataExistThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.GetByIdAsync(It.IsAny<int>()))
+                .Throws<ApplicationException>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.GetByIdAsync(It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<NotFoundResult>(response);
+            Assert.Equal((int)HttpStatusCode.NotFound, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "GET")]
+        internal async Task GivenGetByIdAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.GetByIdAsync(It.IsAny<int>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.GetByIdAsync(It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<BadRequestResult>(response);
+            Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "GET")]
+        internal async Task GivenGetByIdsAsyncWhenDataExistThenReturnsData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.GetByIdsAsync(It.IsAny<ICollection<int>>()))
+                .ReturnsAsync(It.IsAny<IEnumerable<Channel>>())
+                .Verifiable();
+
+            // Act
+            var response = await channelController.GetByIdsAsync(It.IsAny<ICollection<int>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<OkObjectResult>(response);
+            Assert.Equal((int)HttpStatusCode.OK, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "GET")]
+        internal async Task GivenGetByIdsAsyncWhenNoDataExistThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.GetByIdsAsync(It.IsAny<ICollection<int>>()))
+                .Throws<ApplicationException>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.GetByIdsAsync(It.IsAny<ICollection<int>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<NotFoundResult>(response);
+            Assert.Equal((int)HttpStatusCode.NotFound, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "GET")]
+        internal async Task GivenGetByIdsAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.GetByIdsAsync(It.IsAny<ICollection<int>>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.GetByIdsAsync(It.IsAny<ICollection<int>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<BadRequestResult>(response);
+            Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "GET")]
+        internal async Task GivenGetTopAsyncWhenDataExistThenReturnsData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.GetTopAsync(It.IsAny<int>()))
+                .ReturnsAsync(It.IsAny<IEnumerable<Channel>>())
+                .Verifiable();
+
+            // Act
+            var response = await channelController.GetTopAsync(It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<OkObjectResult>(response);
+            Assert.Equal((int)HttpStatusCode.OK, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "GET")]
+        internal async Task GivenGetTopAsyncWhenNoDataExistThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.GetTopAsync(It.IsAny<int>()))
+                .Throws<ApplicationException>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.GetTopAsync(It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<NotFoundResult>(response);
+            Assert.Equal((int)HttpStatusCode.NotFound, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "GET")]
+        internal async Task GivenGetTopAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.GetTopAsync(It.IsAny<int>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.GetTopAsync(It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<BadRequestResult>(response);
+            Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
+        }
     }
 }
