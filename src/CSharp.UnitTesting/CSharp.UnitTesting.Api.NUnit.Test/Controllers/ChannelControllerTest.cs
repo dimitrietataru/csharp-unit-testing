@@ -243,5 +243,85 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             var result = response as BadRequestResult;
             Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
+
+        [Test]
+        [Property("HttpVerb", "POST")]
+        public async Task GivenCreateAsyncWhenInputIsValidThenCreatesData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.CreateAsync(It.IsAny<Channel>()))
+                .Returns(Task.CompletedTask)
+                .Verifiable();
+
+            // Act
+            var response = await channelController.CreateAsync(It.IsAny<Channel>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<CreatedResult>());
+            var result = response as CreatedResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
+        }
+
+        [Test]
+        [Property("HttpVerb", "POST")]
+        public async Task GivenCreateAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.CreateAsync(It.IsAny<Channel>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.CreateAsync(It.IsAny<Channel>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<BadRequestResult>());
+            var result = response as BadRequestResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+        }
+
+        [Test]
+        [Property("HttpVerb", "POST")]
+        public async Task GivenCreateBulkAsyncWhenInputIsValidThenCreatesData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.CreateBulkAsync(It.IsAny<ICollection<Channel>>()))
+                .Returns(Task.CompletedTask)
+                .Verifiable();
+
+            // Act
+            var response = await channelController.CreateBulkAsync(It.IsAny<ICollection<Channel>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<CreatedResult>());
+            var result = response as CreatedResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
+        }
+
+        [Test]
+        [Property("HttpVerb", "POST")]
+        public async Task GivenCreateBulkAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.CreateBulkAsync(It.IsAny<ICollection<Channel>>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.CreateBulkAsync(It.IsAny<ICollection<Channel>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<BadRequestResult>());
+            var result = response as BadRequestResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+        }
     }
 }

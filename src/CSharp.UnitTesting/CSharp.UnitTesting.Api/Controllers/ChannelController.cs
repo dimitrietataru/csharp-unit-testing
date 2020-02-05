@@ -102,7 +102,7 @@ namespace CSharp.UnitTesting.Api.Controllers
             {
                 await channelService.CreateAsync(channel);
 
-                return Created($"api/v1/channels/{ channel.Id }", channel);
+                return Created($"api/v1/channels/{ channel?.Id }", channel);
             }
             catch
             {
