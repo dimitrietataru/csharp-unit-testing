@@ -323,5 +323,125 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             var result = response as BadRequestResult;
             Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
+
+        [Test]
+        [Property("HttpVerb", "PUT")]
+        public async Task GivenUpdateAsyncWhenDataExistThenUpdatesData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>()))
+                .Returns(Task.CompletedTask)
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<OkObjectResult>());
+            var result = response as OkObjectResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+        }
+
+        [Test]
+        [Property("HttpVerb", "PUT")]
+        public async Task GivenUpdateAsyncWhenNoDataExistThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>()))
+                .Throws<ApplicationException>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<NotFoundResult>());
+            var result = response as NotFoundResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+        }
+
+        [Test]
+        [Property("HttpVerb", "PUT")]
+        public async Task GivenUpdateAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<BadRequestResult>());
+            var result = response as BadRequestResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+        }
+
+        [Test]
+        [Property("HttpVerb", "PUT")]
+        public async Task GivenUpdateBulkAsyncWhenDataExistThenUpdatesData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateBulkAsync(It.IsAny<ICollection<Channel>>()))
+                .Returns(Task.CompletedTask)
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<OkObjectResult>());
+            var result = response as OkObjectResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+        }
+
+        [Test]
+        [Property("HttpVerb", "PUT")]
+        public async Task GivenUpdateBulkAsyncWhenNoDataExistThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateBulkAsync(It.IsAny<ICollection<Channel>>()))
+                .Throws<ApplicationException>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<NotFoundResult>());
+            var result = response as NotFoundResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+        }
+
+        [Test]
+        [Property("HttpVerb", "PUT")]
+        public async Task GivenUpdateBulkAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateBulkAsync(It.IsAny<ICollection<Channel>>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            Assert.That(response, Is.InstanceOf<BadRequestResult>());
+            var result = response as BadRequestResult;
+            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+        }
     }
 }

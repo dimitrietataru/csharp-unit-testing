@@ -307,5 +307,119 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
             var result = Assert.IsType<BadRequestResult>(response);
             Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
         }
+
+        [Fact]
+        [Trait("HttpVerb", "PUT")]
+        internal async Task GivenUpdateAsyncWhenDataExistThenUpdatesData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>()))
+                .Returns(Task.CompletedTask)
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<OkObjectResult>(response);
+            Assert.Equal((int)HttpStatusCode.OK, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "PUT")]
+        internal async Task GivenUpdateAsyncWhenNoDataExistThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>()))
+                .Throws<ApplicationException>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<NotFoundResult>(response);
+            Assert.Equal((int)HttpStatusCode.NotFound, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "PUT")]
+        internal async Task GivenUpdateAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<BadRequestResult>(response);
+            Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "PUT")]
+        internal async Task GivenUpdateBulkAsyncWhenDataExistThenUpdatesData()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateBulkAsync(It.IsAny<ICollection<Channel>>()))
+                .Returns(Task.CompletedTask)
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<OkObjectResult>(response);
+            Assert.Equal((int)HttpStatusCode.OK, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "PUT")]
+        internal async Task GivenUpdateBulkAsyncWhenNoDataExistThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateBulkAsync(It.IsAny<ICollection<Channel>>()))
+                .Throws<ApplicationException>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<NotFoundResult>(response);
+            Assert.Equal((int)HttpStatusCode.NotFound, result.StatusCode);
+        }
+
+        [Fact]
+        [Trait("HttpVerb", "PUT")]
+        internal async Task GivenUpdateBulkAsyncWhenExceptionThrownThenHandlesGracefully()
+        {
+            // Arrange
+            mockChannelService
+                .Setup(_ => _.UpdateBulkAsync(It.IsAny<ICollection<Channel>>()))
+                .Throws<Exception>()
+                .Verifiable();
+
+            // Act
+            var response = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
+
+            // Assert
+            mockChannelService.VerifyAll();
+            var result = Assert.IsType<BadRequestResult>(response);
+            Assert.Equal((int)HttpStatusCode.BadRequest, result.StatusCode);
+        }
     }
 }
