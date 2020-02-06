@@ -102,7 +102,7 @@ namespace CSharp.UnitTesting.Api.Controllers
             {
                 await subscriptionService.CreateAsync(subscription);
 
-                return Created($"api/v1/subscriptions/{ subscription.Id }", subscription);
+                return Created($"api/v1/subscriptions/{ subscription?.Id }", subscription);
             }
             catch
             {
