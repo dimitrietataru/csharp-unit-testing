@@ -19,6 +19,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
     <PackageReference Include="ReportGenerator" Version="4.4.6" />
+    <PackageReference Include="Shouldly" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>

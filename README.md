@@ -9,10 +9,10 @@
 - **Code coverage**
   - [coverlet.collector](https://www.nuget.org/packages/coverlet.collector)
   - [ReportGenerator](https://www.nuget.org/packages/ReportGenerator)
-- **Utils** (to be integrated..)
-  - [Bogus](https://www.nuget.org/packages/Bogus)
+- **Utils**
+  - [Bogus](https://www.nuget.org/packages/Bogus) *To be integrated..
   - [Shouldly](https://www.nuget.org/packages/shouldly)
-  - [FluentAssertions](https://www.nuget.org/packages/FluentAssertions)
+  - [FluentAssertions](https://www.nuget.org/packages/FluentAssertions) *To be integrated..
 
 ---
 
