@@ -35,13 +35,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetAllAsync();
+            var result = await channelController.GetAllAsync();
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<ObjectResult>());
-            var result = response as OkObjectResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That(result, Is.InstanceOf<ObjectResult>());
+            var apiResponse = result as OkObjectResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -55,13 +55,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetAllAsync();
+            var result = await channelController.GetAllAsync();
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -75,13 +75,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetByIdAsync(It.IsAny<int>());
+            var result = await channelController.GetByIdAsync(It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<OkObjectResult>());
-            var result = response as OkObjectResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That(result, Is.InstanceOf<OkObjectResult>());
+            var apiResponse = result as OkObjectResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -95,13 +95,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetByIdAsync(It.IsAny<int>());
+            var result = await channelController.GetByIdAsync(It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<NotFoundResult>());
-            var result = response as NotFoundResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That(result, Is.InstanceOf<NotFoundResult>());
+            var apiResponse = result as NotFoundResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -115,13 +115,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetByIdAsync(It.IsAny<int>());
+            var result = await channelController.GetByIdAsync(It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -135,13 +135,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetByIdsAsync(It.IsAny<ICollection<int>>());
+            var result = await channelController.GetByIdsAsync(It.IsAny<ICollection<int>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<OkObjectResult>());
-            var result = response as OkObjectResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That(result, Is.InstanceOf<OkObjectResult>());
+            var apiResponse = result as OkObjectResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -155,13 +155,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetByIdsAsync(It.IsAny<ICollection<int>>());
+            var result = await channelController.GetByIdsAsync(It.IsAny<ICollection<int>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<NotFoundResult>());
-            var result = response as NotFoundResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That(result, Is.InstanceOf<NotFoundResult>());
+            var apiResponse = result as NotFoundResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -175,13 +175,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetByIdsAsync(It.IsAny<ICollection<int>>());
+            var result = await channelController.GetByIdsAsync(It.IsAny<ICollection<int>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -195,13 +195,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetTopAsync(It.IsAny<int>());
+            var result = await channelController.GetTopAsync(It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<OkObjectResult>());
-            var result = response as OkObjectResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That(result, Is.InstanceOf<OkObjectResult>());
+            var apiResponse = result as OkObjectResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -215,13 +215,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetTopAsync(It.IsAny<int>());
+            var result = await channelController.GetTopAsync(It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<NotFoundResult>());
-            var result = response as NotFoundResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That(result, Is.InstanceOf<NotFoundResult>());
+            var apiResponse = result as NotFoundResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -235,13 +235,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.GetTopAsync(It.IsAny<int>());
+            var result = await channelController.GetTopAsync(It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -255,13 +255,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.CreateAsync(It.IsAny<Channel>());
+            var result = await channelController.CreateAsync(It.IsAny<Channel>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<CreatedResult>());
-            var result = response as CreatedResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
+            Assert.That(result, Is.InstanceOf<CreatedResult>());
+            var apiResponse = result as CreatedResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
         }
 
         [Test]
@@ -275,13 +275,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.CreateAsync(It.IsAny<Channel>());
+            var result = await channelController.CreateAsync(It.IsAny<Channel>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -295,13 +295,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.CreateBulkAsync(It.IsAny<ICollection<Channel>>());
+            var result = await channelController.CreateBulkAsync(It.IsAny<ICollection<Channel>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<CreatedResult>());
-            var result = response as CreatedResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
+            Assert.That(result, Is.InstanceOf<CreatedResult>());
+            var apiResponse = result as CreatedResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
         }
 
         [Test]
@@ -315,13 +315,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.CreateBulkAsync(It.IsAny<ICollection<Channel>>());
+            var result = await channelController.CreateBulkAsync(It.IsAny<ICollection<Channel>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -335,13 +335,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
+            var result = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<OkObjectResult>());
-            var result = response as OkObjectResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That(result, Is.InstanceOf<OkObjectResult>());
+            var apiResponse = result as OkObjectResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -355,13 +355,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
+            var result = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<NotFoundResult>());
-            var result = response as NotFoundResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That(result, Is.InstanceOf<NotFoundResult>());
+            var apiResponse = result as NotFoundResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -375,13 +375,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
+            var result = await channelController.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -395,13 +395,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
+            var result = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<OkObjectResult>());
-            var result = response as OkObjectResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That(result, Is.InstanceOf<OkObjectResult>());
+            var apiResponse = result as OkObjectResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -415,13 +415,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
+            var result = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<NotFoundResult>());
-            var result = response as NotFoundResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That(result, Is.InstanceOf<NotFoundResult>());
+            var apiResponse = result as NotFoundResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -435,13 +435,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
+            var result = await channelController.UpdateBulkAsync(It.IsAny<ICollection<Channel>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -455,13 +455,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.DeleteAsync(It.IsAny<int>());
+            var result = await channelController.DeleteAsync(It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<NoContentResult>());
-            var result = response as NoContentResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NoContent));
+            Assert.That(result, Is.InstanceOf<NoContentResult>());
+            var apiResponse = result as NoContentResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NoContent));
         }
 
         [Test]
@@ -475,13 +475,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.DeleteAsync(It.IsAny<int>());
+            var result = await channelController.DeleteAsync(It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<NotFoundResult>());
-            var result = response as NotFoundResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That(result, Is.InstanceOf<NotFoundResult>());
+            var apiResponse = result as NotFoundResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -495,13 +495,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.DeleteAsync(It.IsAny<int>());
+            var result = await channelController.DeleteAsync(It.IsAny<int>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -515,13 +515,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.DeleteBulkAsync(It.IsAny<ICollection<int>>());
+            var result = await channelController.DeleteBulkAsync(It.IsAny<ICollection<int>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<NoContentResult>());
-            var result = response as NoContentResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NoContent));
+            Assert.That(result, Is.InstanceOf<NoContentResult>());
+            var apiResponse = result as NoContentResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NoContent));
         }
 
         [Test]
@@ -535,13 +535,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.DeleteBulkAsync(It.IsAny<ICollection<int>>());
+            var result = await channelController.DeleteBulkAsync(It.IsAny<ICollection<int>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<NotFoundResult>());
-            var result = response as NotFoundResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That(result, Is.InstanceOf<NotFoundResult>());
+            var apiResponse = result as NotFoundResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -555,13 +555,13 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
                 .Verifiable();
 
             // Act
-            var response = await channelController.DeleteBulkAsync(It.IsAny<ICollection<int>>());
+            var result = await channelController.DeleteBulkAsync(It.IsAny<ICollection<int>>());
 
             // Assert
             mockChannelService.VerifyAll();
-            Assert.That(response, Is.InstanceOf<BadRequestResult>());
-            var result = response as BadRequestResult;
-            Assert.That(result.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That(result, Is.InstanceOf<BadRequestResult>());
+            var apiResponse = result as BadRequestResult;
+            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
     }
 }
