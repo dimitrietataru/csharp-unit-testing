@@ -102,7 +102,7 @@ namespace CSharp.UnitTesting.Api.Controllers
             {
                 await videoService.CreateAsync(video);
 
-                return Created($"api/v1/videos/{ video.Id }", video);
+                return Created($"api/v1/videos/{ video?.Id }", video);
             }
             catch
             {
