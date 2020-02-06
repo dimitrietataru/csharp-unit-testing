@@ -5,9 +5,10 @@
       <DataCollector friendlyName="XPlat code coverage">
         <Configuration>
           <Format>json,cobertura</Format>
+          <ExcludeByFile>**/**/Program.cs,**/**/Startup.cs</ExcludeByFile>
+          <SingleHit>false</SingleHit>
           <UseSourceLink>true</UseSourceLink>
           <IncludeTestAssembly>false</IncludeTestAssembly>
-          <ExcludeByFile>**/**/Program.cs,**/**/Startup.cs,**/CSharp.UnitTesting.Api/Data/**/*.*</ExcludeByFile>
         </Configuration>
       </DataCollector>
     </DataCollectors>
