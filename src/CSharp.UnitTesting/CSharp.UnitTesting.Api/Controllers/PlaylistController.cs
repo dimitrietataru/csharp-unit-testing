@@ -82,7 +82,7 @@ namespace CSharp.UnitTesting.Api.Controllers
             {
                 await playlistService.CreateAsync(playlist);
 
-                return Created($"api/v1/playlists/{ playlist.Id }", playlist);
+                return Created($"api/v1/playlists/{ playlist?.Id }", playlist);
             }
             catch
             {
