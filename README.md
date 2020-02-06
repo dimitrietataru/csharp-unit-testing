@@ -31,7 +31,7 @@ PM> Install-Package coverlet.collector -Version 1.2.0
 </PackageReference>
 ```
 
-#### Collector configuration. Add a file (e.g. *collectorsettings*) anywhere in the solution/project
+#### Collector configuration. Add a file (e.g. *runsettings*) anywhere in the solution/project
 ```  xml
 <?xml version="1.0" encoding="utf-8" ?>
 <RunSettings>
@@ -62,15 +62,15 @@ PM> Install-Package coverlet.collector -Version 1.2.0
 #### Run tests and collect data
 ``` powershell
 # Template command for specific test project
-PM> dotnet test .\Specific.Test.Project --collect:"XPlat Code Coverage" --settings .\Specific.Test.Project\collectorFileName
+PM> dotnet test .\Specific.Test.Project --collect:"XPlat Code Coverage" --settings .\Specific.Test.Project\runsettings
 ```
 ``` powershell
 # Template command for all test projects
-PM> dotnet test --collect:"XPlat Code Coverage" --settings .\collectorFileName
+PM> dotnet test --collect:"XPlat Code Coverage" --settings .\runsettings
 ```
 ``` powershell
 # CSharp.UnitTesting solution specific
-PM> dotnet test --collect:"XPlat Code Coverage" --settings apiRunSettings
+PM> dotnet test --collect:"XPlat Code Coverage" --settings runsettings_CSharpUnitTestingApi
 ```
 
 ## Generate Code Coverage Report
