@@ -1,5 +1,18 @@
 # C# Unit Testing
 
+
+## Table of contents
+
+* [NuGet packages](#nuget-packages)
+* [Syntax](#syntax)
+  * [Given-When-Then](#given-when-then-pattern)
+  * [Arrange-Act-Assert](#arrange-act-assert-pattern)
+  * [Moq](#moq-setup-and-verify)
+  * [Assertions](#assertions)
+* [Collect code coverage](#collect-code-coverage)
+* [Generate code coverage report](#generate-code-coverage-report)
+
+
 ## NuGet packages
 - **Frameworks**
   - [NUnit](https://www.nuget.org/packages/NUnit)
@@ -14,9 +27,14 @@
   - [Shouldly](https://www.nuget.org/packages/shouldly)
   - [FluentAssertions](https://www.nuget.org/packages/FluentAssertions)
 
----
 
 ## Syntax
+
+#### Given-When-Then pattern
+[Martin Fowler's blog](https://www.martinfowler.com/bliki/GivenWhenThen.html)
+
+#### Arrange-Act-Assert pattern
+[Docs.Microsoft](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2019#write-your-tests)
 
 #### Moq setup and verify
 
@@ -48,9 +66,13 @@ mockService.Verify(_ => _.RunAsync(), Times.Exactly(2));
 mockService.Verify(_ => _.RunAsync(It.IsAny<int>()), Times.Never);
 ```
 
----
+#### Assertions
 
-## Generate code coverage
+``` csharp
+```
+
+
+## Collect code coverage
 
 #### Install *coverlet.collector* NuGet package
 ``` powershell
@@ -106,6 +128,7 @@ PM> dotnet test --collect:"XPlat Code Coverage" --settings .\runsettings
 # CSharp.UnitTesting solution specific
 PM> dotnet test --collect:"XPlat Code Coverage" --settings runsettings_CSharpUnitTestingApi
 ```
+
 
 ## Generate Code Coverage Report
 
