@@ -69,6 +69,24 @@ mockService.Verify(_ => _.RunAsync(It.IsAny<int>()), Times.Never);
 #### Assertions
 
 ``` csharp
+// NUnit
+Assert.That(result, Is.InstanceOf<ObjectResult>());
+var apiResponse = result as OkObjectResult;
+Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+
+// xUnit
+var apiResponse = Assert.IsType<OkObjectResult>(result);
+Assert.Equal((int)HttpStatusCode.OK, apiResponse.StatusCode);
+
+// FluentAssertions
+result
+    .Should().BeOfType<OkObjectResult>("because we return content")
+    .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+    
+// Shouldly
+result.ShouldSatisfyAllConditions(
+    () => result.ShouldBeOfType<OkObjectResult>(),
+    () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
 ```
 
 
