@@ -16,6 +16,40 @@
 
 ---
 
+## Syntax
+
+#### Moq setup and verify
+
+``` csharp
+// Setup async method when it returns data
+mockService
+    .Setup(_ => _.GetAsync(It.IsAny<int>()))
+    .ReturnsAsync(It.IsAny<Data>())
+    .Verifiable();
+
+// Setup async method when it executes without a return type
+mockService
+    .Setup(_ => _.RunAsync())
+    .ReturnsAsync(Task.CompletedTask)
+    .Verifiable();
+
+// Setup async method when it throws an exception
+mockService
+    .Setup(_ => _.RunAsync(It.IsAny<int>()))
+    .Throws<Exception>()
+    .Verifiable();
+
+// Verify all service methods, marked as 'Verifiable'
+mockService.VerifyAll();
+
+// Verify individual service method
+mockService.Verify(_ => _.GetAsync(It.IsAny<int>()), Times.Once);
+mockService.Verify(_ => _.RunAsync(), Times.Exactly(2));
+mockService.Verify(_ => _.RunAsync(It.IsAny<int>()), Times.Never);
+```
+
+---
+
 ## Generate code coverage
 
 #### Install *coverlet.collector* NuGet package
