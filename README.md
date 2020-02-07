@@ -12,7 +12,7 @@
 - **Utils**
   - [Bogus](https://www.nuget.org/packages/Bogus) *To be integrated..
   - [Shouldly](https://www.nuget.org/packages/shouldly)
-  - [FluentAssertions](https://www.nuget.org/packages/FluentAssertions) *To be integrated..
+  - [FluentAssertions](https://www.nuget.org/packages/FluentAssertions)
 
 ---
 
