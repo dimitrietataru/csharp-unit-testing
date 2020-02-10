@@ -11,7 +11,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 {
-    [Trait("xUnit", "Channel Controller")]
+    [Trait("xUnit", "Controller | Channel")]
     public class ChannelControllerTest
     {
         private readonly Mock<IChannelService> mockChannelService;

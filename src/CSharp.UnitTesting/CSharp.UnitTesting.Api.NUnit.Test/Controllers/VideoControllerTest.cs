@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
 {
-    [Property("NUnit", "Video Controller")]
+    [Property("NUnit", "Controller | Video")]
     public class VideoControllerTest
     {
         private Mock<IVideoService> mockVideoService;

@@ -12,7 +12,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
 {
-    [Trait("xUnit | Shouldly", "Channel Controller")]
+    [Trait("xUnit | Shouldly", "Controller | Channel")]
     public class ChannelControllerTest
     {
         private readonly Mock<IChannelService> mockChannelService;

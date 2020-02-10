@@ -11,7 +11,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 {
-    [Trait("xUnit", "Video Controller")]
+    [Trait("xUnit", "Controller | Video")]
     public class VideoControllerTest
     {
         private readonly Mock<IVideoService> mockVideoService;

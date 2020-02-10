@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
 {
-    [Property("NUnit", "Subscription Controller")]
+    [Property("NUnit", "Controller | Subscription")]
     public class SubscriptionControllerTest
     {
         private Mock<ISubscriptionService> mockSubscriptionService;

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
 {
-    [Property("NUnit | Shouldly", "Channel Controller")]
+    [Property("NUnit | Shouldly", "Controller | Channel")]
     public class ChannelControllerTest
     {
         private Mock<IChannelService> mockChannelService;

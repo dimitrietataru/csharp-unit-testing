@@ -11,7 +11,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 {
-    [Trait("xUnit", "Subscription Controller")]
+    [Trait("xUnit", "Controller | Subscription")]
     public class SubscriptionControllerTest
     {
         private readonly Mock<ISubscriptionService> mockSubscriptionService;

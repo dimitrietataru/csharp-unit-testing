@@ -12,7 +12,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 {
-    [Trait("xUnit | FluentAssertions", "Video Controller")]
+    [Trait("xUnit | FluentAssertions", "Controller | Video")]
     public class VideoControllerTest
     {
         private readonly Mock<IVideoService> mockVideoService;

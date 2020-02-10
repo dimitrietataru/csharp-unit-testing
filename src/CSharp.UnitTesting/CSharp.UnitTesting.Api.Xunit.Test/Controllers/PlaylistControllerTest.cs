@@ -11,7 +11,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 {
-    [Trait("xUnit", "Playlist Controller")]
+    [Trait("xUnit", "Controller | Playlist")]
     public class PlaylistControllerTest
     {
         private readonly Mock<IPlaylistService> mockPlaylistService;

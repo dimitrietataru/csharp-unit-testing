@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 {
-    [Property("NUnit | FluentAssertions", "Playlist Controller")]
+    [Property("NUnit | FluentAssertions", "Controller | Playlist")]
     public class PlaylistControllerTest
     {
         private Mock<IPlaylistService> mockPlaylistService;

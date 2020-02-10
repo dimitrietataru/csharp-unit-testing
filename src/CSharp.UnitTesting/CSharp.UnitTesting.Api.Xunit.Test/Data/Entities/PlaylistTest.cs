@@ -7,7 +7,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
 {
-    [Trait("xUnit", "Entities")]
+    [Trait("xUnit", "Entity | Playlist")]
     public class PlaylistTest
     {
         [Fact]

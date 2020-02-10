@@ -12,7 +12,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 {
-    [Trait("xUnit | FluentAssertions", "Channel Controller")]
+    [Trait("xUnit | FluentAssertions", "Controller | Channel")]
     public class ChannelControllerTest
     {
         private readonly Mock<IChannelService> mockChannelService;

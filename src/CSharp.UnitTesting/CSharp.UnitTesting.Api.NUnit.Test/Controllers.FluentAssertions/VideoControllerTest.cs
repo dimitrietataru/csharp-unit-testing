@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 {
-    [Property("NUnit | FluentAssertions", "Video Controller")]
+    [Property("NUnit | FluentAssertions", "Controller | Video")]
     public class VideoControllerTest
     {
         private Mock<IVideoService> mockVideoService;

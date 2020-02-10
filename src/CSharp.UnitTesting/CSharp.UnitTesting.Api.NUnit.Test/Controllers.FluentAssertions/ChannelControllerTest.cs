@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 {
-    [Property("NUnit | FluentAssertions", "Channel Controller")]
+    [Property("NUnit | FluentAssertions", "Controller | Channel")]
     public class ChannelControllerTest
     {
         private Mock<IChannelService> mockChannelService;

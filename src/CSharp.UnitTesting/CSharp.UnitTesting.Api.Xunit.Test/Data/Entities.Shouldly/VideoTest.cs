@@ -6,7 +6,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.Shouldly
 {
-    [Trait("xUnit | Shouldly", "Entities")]
+    [Trait("xUnit | Shouldly", "Entity | Video")]
     public class PlaVideoTestylistTest
     {
         [Fact]

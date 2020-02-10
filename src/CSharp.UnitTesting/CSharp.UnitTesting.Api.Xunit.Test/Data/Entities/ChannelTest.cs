@@ -6,7 +6,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
 {
-    [Trait("xUnit", "Entities")]
+    [Trait("xUnit", "Entity | Channel")]
     public class ChannelTest
     {
         [Fact]

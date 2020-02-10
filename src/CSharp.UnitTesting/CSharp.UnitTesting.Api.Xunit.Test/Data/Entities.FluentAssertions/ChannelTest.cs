@@ -6,7 +6,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.FluentAssertions
 {
-    [Trait("xUnit | FluentAssertions", "Entities")]
+    [Trait("xUnit | FluentAssertions", "Entity | Channel")]
     public class ChannelTest
     {
         [Fact]

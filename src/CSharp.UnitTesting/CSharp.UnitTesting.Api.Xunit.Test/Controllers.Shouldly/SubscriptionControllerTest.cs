@@ -12,7 +12,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
 {
-    [Trait("xUnit | Shouldly", "Subscription Controller")]
+    [Trait("xUnit | Shouldly", "Controller | Subscription")]
     public class SubscriptionControllerTest
     {
         private readonly Mock<ISubscriptionService> mockSubscriptionService;

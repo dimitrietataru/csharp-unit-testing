@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
 {
-    [Property("NUnit | Shouldly", "Video Controller")]
+    [Property("NUnit | Shouldly", "Controller | Video")]
     public class VideoControllerTest
     {
         private Mock<IVideoService> mockVideoService;

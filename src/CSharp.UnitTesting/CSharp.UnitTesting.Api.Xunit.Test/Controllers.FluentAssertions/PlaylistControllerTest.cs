@@ -12,7 +12,7 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 {
-    [Trait("xUnit | FluentAssertions", "Playlist Controller")]
+    [Trait("xUnit | FluentAssertions", "Controller | Playlist")]
     public class PlaylistControllerTest
     {
         private readonly Mock<IPlaylistService> mockPlaylistService;

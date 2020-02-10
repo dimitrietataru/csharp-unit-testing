@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
 {
-    [Property("NUnit", "Playlist Controller")]
+    [Property("NUnit", "Controller | Playlist")]
     public class PlaylistControllerTest
     {
         private Mock<IPlaylistService> mockPlaylistService;

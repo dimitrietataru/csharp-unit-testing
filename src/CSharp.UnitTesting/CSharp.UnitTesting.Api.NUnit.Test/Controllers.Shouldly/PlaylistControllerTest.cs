@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
 {
-    [Property("NUnit | Shouldly", "Playlist Controller")]
+    [Property("NUnit | Shouldly", "Controller | Playlist")]
     public class PlaylistControllerTest
     {
         private Mock<IPlaylistService> mockPlaylistService;

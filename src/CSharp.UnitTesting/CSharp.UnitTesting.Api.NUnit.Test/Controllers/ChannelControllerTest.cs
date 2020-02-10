@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
 {
-    [Property("NUnit", "Channel Controller")]
+    [Property("NUnit", "Controller | Channel")]
     public class ChannelControllerTest
     {
         private Mock<IChannelService> mockChannelService;

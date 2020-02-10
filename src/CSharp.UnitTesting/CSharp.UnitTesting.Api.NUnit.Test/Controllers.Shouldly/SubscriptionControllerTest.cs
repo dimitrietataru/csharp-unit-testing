@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
 {
-    [Property("NUnit | Shouldly", "Subscription Controller")]
+    [Property("NUnit | Shouldly", "Controller | Subscription")]
     public class SubscriptionControllerTest
     {
         private Mock<ISubscriptionService> mockSubscriptionService;
