@@ -1,5 +1,6 @@
 # C# Unit Testing
 
+![Coverage](https://github.com/dimitrietataru/csharp-unit-testing/blob/master/Coverage.png)
 
 ## Table of contents
 
