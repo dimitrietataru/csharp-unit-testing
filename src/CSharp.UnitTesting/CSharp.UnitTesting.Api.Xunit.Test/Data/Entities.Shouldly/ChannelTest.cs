@@ -11,35 +11,34 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.Shouldly
     public class ChannelTest
     {
         [Fact]
-        [Trait("Entities", "Channel")]
         internal void GivenChannelEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
         {
             // Arrange
             IDataFaker dataFaker = new DataFaker();
 
             // Act
-            var channels = dataFaker.FakeChannel.Generate(count: 999);
+            var channels = dataFaker.FakeChannel.Generate(count: 99);
 
             // Assert
             channels.ForEach(
                 channel => channel.ShouldSatisfyAllConditions(
                     () => channel.Id.ShouldNotBeNull(),
-                    () => channel.Id.ShouldBeGreaterThanOrEqualTo(1),
-                    () => channel.Name.ShouldNotBeNullOrEmpty(),
+                    () => channel.Id.ShouldBeGreaterThanOrEqualTo(1, "because it is PK"),
+                    () => channel.Name.ShouldNotBeNullOrEmpty("because it is required"),
                     () => channel.Name.Length.ShouldBeInRange(1, 50),
-                    () => channel.Description.ShouldNotBeNullOrEmpty(),
+                    () => channel.Description.ShouldNotBeNullOrEmpty("because it is required"),
                     () => channel.Description.Length.ShouldBeInRange(1, 100),
-                    () => channel.Avatar.ShouldNotBeNull(),
-                    () => channel.Avatar.Length.ShouldBeGreaterThanOrEqualTo(0),
+                    () => channel.Avatar.ShouldNotBeNull("because it is required"),
+                    () => channel.Avatar.ShouldNotBeEmpty(),
                     () => channel.OwnerEmail.ShouldNotBeNullOrEmpty(),
                     () => channel.OwnerEmail.ShouldContain('@'),
-                    () => channel.Subscriptions.ShouldNotBeNull(),
-                    () => channel.Subscriptions.ShouldBeAssignableTo<IEnumerable<Subscription>>(),
+                    () => channel.Subscriptions.ShouldNotBeNull("because it is required"),
                     () => channel.Subscriptions.ShouldNotBeEmpty(),
+                    () => channel.Subscriptions.ShouldBeAssignableTo<IEnumerable<Subscription>>(),
                     () => channel.Videos.ShouldNotBeNull(),
-                    () => channel.Videos.ShouldBeAssignableTo<IEnumerable<Video>>(),
                     () => channel.Videos.ShouldNotBeEmpty(),
-                    () => channel.IsDeleted.ShouldNotBeNull()));
+                    () => channel.Videos.ShouldBeAssignableTo<IEnumerable<Video>>(),
+                    () => channel.IsDeleted.ShouldNotBeNull("because it is required")));
         }
     }
 }

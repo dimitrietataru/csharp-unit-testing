@@ -12,31 +12,30 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.Shouldly
     public class PlaylistTest
     {
         [Fact]
-        [Trait("Entities", "Playlist")]
         internal void GivenPlaylistEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
         {
             // Arrange
             IDataFaker dataFaker = new DataFaker();
 
             // Act
-            var playlists = dataFaker.FakePlaylist.Generate(count: 999);
+            var playlists = dataFaker.FakePlaylist.Generate(count: 99);
 
             // Assert
             playlists.ForEach(
                 playlist => playlist.ShouldSatisfyAllConditions(
                     () => playlist.Id.ShouldNotBeNull(),
-                    () => playlist.Id.ShouldNotBe(Guid.Empty),
-                    () => playlist.Name.ShouldNotBeNullOrEmpty(),
+                    () => playlist.Id.ShouldNotBe(Guid.Empty, "because it is PK"),
+                    () => playlist.Name.ShouldNotBeNullOrEmpty("because it is required"),
                     () => playlist.Name.Length.ShouldBeInRange(1, 50),
-                    () => playlist.Description.ShouldNotBeNullOrEmpty(),
+                    () => playlist.Description.ShouldNotBeNullOrEmpty("because it is required"),
                     () => playlist.Description.Length.ShouldBeInRange(1, 100),
-                    () => playlist.AccessType.ShouldNotBeNull(),
+                    () => playlist.AccessType.ShouldNotBeNull("because it is required"),
                     () => playlist.CreatedAt.ShouldBeGreaterThanOrEqualTo(DateTime.UtcNow.AddDays(-365)),
                     () => playlist.CreatedAt.ShouldBeLessThanOrEqualTo(DateTime.UtcNow),
                     () => playlist.Videos.ShouldNotBeNull(),
-                    () => playlist.Videos.ShouldBeAssignableTo<IEnumerable<Video>>(),
                     () => playlist.Videos.ShouldNotBeEmpty(),
-                    () => playlist.IsDeleted.ShouldNotBeNull()));
+                    () => playlist.Videos.ShouldBeAssignableTo<IEnumerable<Video>>(),
+                    () => playlist.IsDeleted.ShouldNotBeNull("because it is required")));
         }
     }
 }

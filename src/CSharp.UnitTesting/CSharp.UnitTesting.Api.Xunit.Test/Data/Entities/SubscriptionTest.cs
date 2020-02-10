@@ -9,7 +9,6 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
     public class SubscriptionTest
     {
         [Fact]
-        [Trait("Entities", "Subscription")]
         internal void GivenSubscriptionEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
         {
             // Arrange
@@ -21,16 +20,12 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
             // Assert
             subscriptions.ForEach(subscription =>
             {
-                ////Assert.NotNull(subscription.Id);
                 Assert.NotEqual(Guid.Empty, subscription.Id);
-                ////Assert.NotNull(subscription.ChannelId);
-                Assert.True(subscription.ChannelId >= 1);
+                Assert.InRange(subscription.ChannelId, 1, int.MaxValue);
                 Assert.NotNull(subscription.UserEmail);
                 Assert.NotEmpty(subscription.UserEmail);
                 Assert.Contains('@', subscription.UserEmail);
-                Assert.True(subscription.SubscribedAt >= DateTime.UtcNow.AddDays(-365));
-                Assert.True(subscription.SubscribedAt <= DateTime.UtcNow);
-                ////Assert.NotNull(subscription.IsDeleted);
+                Assert.InRange(subscription.SubscribedAt, DateTime.UtcNow.AddDays(-365), DateTime.UtcNow);
             });
         }
     }

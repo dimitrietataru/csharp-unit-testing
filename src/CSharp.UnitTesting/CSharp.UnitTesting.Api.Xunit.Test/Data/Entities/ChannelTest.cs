@@ -10,7 +10,6 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
     public class ChannelTest
     {
         [Fact]
-        [Trait("Entities", "Channel")]
         internal void GivenChannelEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
         {
             // Arrange
@@ -22,24 +21,24 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
             // Assert
             channels.ForEach(channel =>
             {
-                ////Assert.NotNull(channel.Id);
-                Assert.True(channel.Id >= 1);
+                Assert.InRange(channel.Id, 1, int.MaxValue);
+                Assert.NotNull(channel.Name);
+                Assert.NotEmpty(channel.Name);
+                Assert.InRange(channel.Name.Length, 1, 50);
                 Assert.NotNull(channel.Description);
                 Assert.NotEmpty(channel.Description);
-                Assert.True(channel.Description.Length >= 1);
-                Assert.True(channel.Description.Length <= 100);
+                Assert.InRange(channel.Description.Length, 1, 100);
                 Assert.NotNull(channel.Avatar);
-                Assert.True(channel.Avatar.Length >= 0);
+                Assert.NotEmpty(channel.Avatar);
                 Assert.NotNull(channel.OwnerEmail);
                 Assert.NotEmpty(channel.OwnerEmail);
                 Assert.Contains('@', channel.OwnerEmail);
                 Assert.NotNull(channel.Subscriptions);
-                Assert.IsAssignableFrom<IEnumerable<Subscription>>(channel.Subscriptions);
                 Assert.NotEmpty(channel.Subscriptions);
+                Assert.IsAssignableFrom<IEnumerable<Subscription>>(channel.Subscriptions);
                 Assert.NotNull(channel.Videos);
-                Assert.IsAssignableFrom<IEnumerable<Video>>(channel.Videos);
                 Assert.NotEmpty(channel.Videos);
-                ////Assert.NotNull(channel.IsDeleted);
+                Assert.IsAssignableFrom<IEnumerable<Video>>(channel.Videos);
             });
         }
     }

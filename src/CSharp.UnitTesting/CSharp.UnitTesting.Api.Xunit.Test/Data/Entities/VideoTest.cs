@@ -9,7 +9,6 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
     public class PlaVideoTestylistTest
     {
         [Fact]
-        [Trait("Entities", "Video")]
         internal void GivenVideoEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
         {
             // Arrange
@@ -21,26 +20,17 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
             // Assert
             videos.ForEach(video =>
             {
-                ////Assert.NotNull(video.Id);
                 Assert.NotEqual(Guid.Empty, video.Id);
-                ////Assert.NotNull(video.ChannelId);
-                Assert.True(video.ChannelId >= 1);
+                Assert.InRange(video.ChannelId, 1, int.MaxValue);
                 Assert.NotNull(video.Title);
                 Assert.NotEmpty(video.Title);
-                Assert.True(video.Title.Length >= 1);
-                Assert.True(video.Title.Length <= 50);
-                ////Assert.NotNull(video.Length);
-                Assert.True(video.Length >= 1);
-                Assert.True(video.Length <= 3600);
+                Assert.InRange(video.Title.Length, 1, 50);
+                Assert.InRange(video.Length, 1, 3600);
                 Assert.NotNull(video.Thumbnail);
-                Assert.True(video.Thumbnail.Length >= 0);
+                Assert.NotEmpty(video.Thumbnail);
                 Assert.NotNull(video.Url);
                 Assert.NotEmpty(video.Url);
-                ////Assert.NotNull(video.AccessType);
-                ////Assert.NotNull(video.PublishDate);
-                Assert.True(video.PublishDate >= DateTime.UtcNow.AddDays(-365));
-                Assert.True(video.PublishDate <= DateTime.UtcNow);
-                ////Assert.NotNull(video.IsDeleted);
+                Assert.InRange(video.PublishDate, DateTime.UtcNow.AddDays(-365), DateTime.UtcNow);
             });
         }
     }

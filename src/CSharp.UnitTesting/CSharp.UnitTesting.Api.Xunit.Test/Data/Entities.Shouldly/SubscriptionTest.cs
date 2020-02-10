@@ -10,7 +10,6 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.Shouldly
     public class SubscriptionTest
     {
         [Fact]
-        [Trait("Entities", "Subscription")]
         internal void GivenSubscriptionEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
         {
             // Arrange
@@ -23,14 +22,13 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.Shouldly
             subscriptions.ForEach(
                 subscription => subscription.ShouldSatisfyAllConditions(
                     () => subscription.Id.ShouldNotBeNull(),
-                    () => subscription.Id.ShouldNotBe(Guid.Empty),
+                    () => subscription.Id.ShouldNotBe(Guid.Empty, "because it is PK"),
                     () => subscription.ChannelId.ShouldNotBeNull(),
-                    () => subscription.ChannelId.ShouldBeGreaterThanOrEqualTo(1),
-                    () => subscription.UserEmail.ShouldNotBeNullOrEmpty(),
+                    () => subscription.ChannelId.ShouldBeGreaterThanOrEqualTo(1, "because it is FK"),
+                    () => subscription.UserEmail.ShouldNotBeNullOrEmpty("because it is required"),
                     () => subscription.UserEmail.ShouldContain('@'),
-                    () => subscription.SubscribedAt.ShouldBeGreaterThanOrEqualTo(DateTime.UtcNow.AddDays(-365)),
-                    () => subscription.SubscribedAt.ShouldBeLessThanOrEqualTo(DateTime.UtcNow),
-                    () => subscription.IsDeleted.ShouldNotBeNull()));
+                    () => subscription.SubscribedAt.ShouldBeInRange(DateTime.UtcNow.AddDays(-365), DateTime.UtcNow),
+                    () => subscription.IsDeleted.ShouldNotBeNull("because it is required")));
         }
     }
 }
