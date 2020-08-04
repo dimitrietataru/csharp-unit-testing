@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 {
-    [Property("NUnit | FluentAssertions", "Controller | Playlist")]
-    public class PlaylistControllerTest
+    [Property("NUnit + FluentAssertions | Controllers", nameof(PlaylistController))]
+    public sealed class PlaylistControllerTest
     {
-        private Mock<IPlaylistService> mockPlaylistService;
         private PlaylistController playlistController;
+        private Mock<IPlaylistService> mockPlaylistService;
 
         [SetUp]
         public void Setup()
@@ -40,9 +40,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return content")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Test]
@@ -60,9 +59,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Test]
@@ -80,9 +78,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return expected content")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Test]
@@ -100,9 +97,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Test]
@@ -120,9 +116,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Test]
@@ -140,9 +135,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return expected content")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Test]
@@ -160,9 +154,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Test]
@@ -180,9 +173,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Test]
@@ -200,9 +192,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<CreatedResult>("because we return content after create")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.Created);
+            result.Should().NotBeNull().And.BeOfType<CreatedResult>();
+            (result as CreatedResult).StatusCode.Should().Be((int)HttpStatusCode.Created);
         }
 
         [Test]
@@ -220,9 +211,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Test]
@@ -240,9 +230,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<CreatedResult>("because we return content after create")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.Created);
+            result.Should().NotBeNull().And.BeOfType<CreatedResult>();
+            (result as CreatedResult).StatusCode.Should().Be((int)HttpStatusCode.Created);
         }
 
         [Test]
@@ -260,9 +249,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Test]
@@ -280,9 +268,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return content after update")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Test]
@@ -300,9 +287,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Test]
@@ -320,9 +306,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Test]
@@ -340,9 +325,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return content after update")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Test]
@@ -360,9 +344,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Test]
@@ -380,9 +363,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Test]
@@ -400,9 +382,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<NoContentResult>("because we do not return content after delete")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
+            result.Should().NotBeNull().And.BeOfType<NoContentResult>();
+            (result as NoContentResult).StatusCode.Should().Be((int)HttpStatusCode.NoContent);
         }
 
         [Test]
@@ -420,9 +401,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Test]
@@ -440,9 +420,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Test]
@@ -460,9 +439,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<NoContentResult>("because we do not return content after delete")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
+            result.Should().NotBeNull().And.BeOfType<NoContentResult>();
+            (result as NoContentResult).StatusCode.Should().Be((int)HttpStatusCode.NoContent);
         }
 
         [Test]
@@ -480,9 +458,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Test]
@@ -500,9 +477,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.FluentAssertions
 
             // Assert
             mockPlaylistService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
     }
 }

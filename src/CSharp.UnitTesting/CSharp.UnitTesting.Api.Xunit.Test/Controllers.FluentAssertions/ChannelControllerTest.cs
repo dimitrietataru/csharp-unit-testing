@@ -12,11 +12,11 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 {
-    [Trait("xUnit | FluentAssertions", "Controller | Channel")]
-    public class ChannelControllerTest
+    [Trait("xUnit + FluentAssertions | Controllers", nameof(ChannelController))]
+    public sealed class ChannelControllerTest
     {
-        private readonly Mock<IChannelService> mockChannelService;
         private readonly ChannelController channelController;
+        private readonly Mock<IChannelService> mockChannelService;
 
         public ChannelControllerTest()
         {
@@ -39,9 +39,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return content")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Fact]
@@ -59,9 +58,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -79,9 +77,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return expected content")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Fact]
@@ -99,9 +96,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -119,9 +115,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -139,9 +134,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return expected content")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Fact]
@@ -159,9 +153,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -179,9 +172,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -199,9 +191,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return expected content")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Fact]
@@ -219,9 +210,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -239,9 +229,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -259,9 +248,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<CreatedResult>("because we return content after create")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.Created);
+            result.Should().NotBeNull().And.BeOfType<CreatedResult>();
+            (result as CreatedResult).StatusCode.Should().Be((int)HttpStatusCode.Created);
         }
 
         [Fact]
@@ -279,9 +267,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -299,9 +286,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<CreatedResult>("because we return content after create")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.Created);
+            result.Should().NotBeNull().And.BeOfType<CreatedResult>();
+            (result as CreatedResult).StatusCode.Should().Be((int)HttpStatusCode.Created);
         }
 
         [Fact]
@@ -319,9 +305,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -339,9 +324,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return content after update")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Fact]
@@ -359,9 +343,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -379,9 +362,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -399,9 +381,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<OkObjectResult>("because we return content after update")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.OK);
+            result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
+            (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
         }
 
         [Fact]
@@ -419,9 +400,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -439,9 +419,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -459,9 +438,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<NoContentResult>("because we do not return content after delete")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
+            result.Should().NotBeNull().And.BeOfType<NoContentResult>();
+            (result as NoContentResult).StatusCode.Should().Be((int)HttpStatusCode.NoContent);
         }
 
         [Fact]
@@ -479,9 +457,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -499,9 +476,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
 
         [Fact]
@@ -519,9 +495,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<NoContentResult>("because we do not return content after delete")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NoContent);
+            result.Should().NotBeNull().And.BeOfType<NoContentResult>();
+            (result as NoContentResult).StatusCode.Should().Be((int)HttpStatusCode.NoContent);
         }
 
         [Fact]
@@ -539,9 +514,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<NotFoundResult>("because we could not find associated data")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+            result.Should().NotBeNull().And.BeOfType<NotFoundResult>();
+            (result as NotFoundResult).StatusCode.Should().Be((int)HttpStatusCode.NotFound);
         }
 
         [Fact]
@@ -559,9 +533,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.FluentAssertions
 
             // Assert
             mockChannelService.VerifyAll();
-            result
-                .Should().BeOfType<BadRequestResult>("because we handle exceptions")
-                .Which.StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
+            result.Should().NotBeNull().And.BeOfType<BadRequestResult>();
+            (result as BadRequestResult).StatusCode.Should().Be((int)HttpStatusCode.BadRequest);
         }
     }
 }
