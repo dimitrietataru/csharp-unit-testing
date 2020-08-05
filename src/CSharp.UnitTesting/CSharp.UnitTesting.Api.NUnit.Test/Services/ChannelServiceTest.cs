@@ -5,12 +5,11 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Services
 {
-    [Property("NUnit", "Service | Channel")]
-    public class ChannelServiceTest
+    [Property("NUnit + Default | Services", nameof(ChannelService))]
+    public sealed class ChannelServiceTest
     {
         private readonly IChannelService channelService;
 
@@ -23,10 +22,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenGetAllAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.GetAllAsync();
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.GetAllAsync());
 
             // Assert
             Assert.That(exception, Is.Not.Null);
@@ -37,10 +36,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenGetByIdAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.GetByIdAsync(It.IsAny<int>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.GetByIdAsync(It.IsAny<int>()));
 
             // Assert
             Assert.That(exception, Is.Not.Null);
@@ -51,10 +50,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenGetByIdsAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.GetByIdsAsync(It.IsAny<IEnumerable<int>>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.GetByIdsAsync(It.IsAny<IEnumerable<int>>()));
 
             // Assert
             Assert.That(exception, Is.Not.Null);
@@ -65,10 +64,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenGetTopAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.GetTopAsync(It.IsAny<int>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.GetTopAsync(It.IsAny<int>()));
 
             // Assert
             Assert.That(exception, Is.Not.Null);
@@ -79,10 +78,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenCreateAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.CreateAsync(It.IsAny<Channel>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.CreateAsync(It.IsAny<Channel>()));
 
             // Assert
             Assert.That(exception, Is.Not.Null);
@@ -93,10 +92,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenCreateBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.CreateBulkAsync(It.IsAny<IEnumerable<Channel>>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.CreateBulkAsync(It.IsAny<IEnumerable<Channel>>()));
 
             // Assert
             Assert.That(exception, Is.Not.Null);
@@ -107,10 +106,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenUpdateAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.UpdateAsync(It.IsAny<Channel>(), It.IsAny<int>()));
 
             // Assert
             Assert.That(exception, Is.Not.Null);
@@ -121,10 +120,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenUpdateBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.UpdateBulkAsync(It.IsAny<IEnumerable<Channel>>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.UpdateBulkAsync(It.IsAny<IEnumerable<Channel>>()));
 
             // Assert
             Assert.That(exception, Is.Not.Null);
@@ -135,10 +134,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenDeleteAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.DeleteAsync(It.IsAny<int>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.DeleteAsync(It.IsAny<int>()));
 
             // Assert
             Assert.That(exception, Is.Not.Null);
@@ -149,10 +148,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services
         public void GivenDeleteBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await channelService.DeleteBulkAsync(It.IsAny<IEnumerable<int>>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => channelService.DeleteBulkAsync(It.IsAny<IEnumerable<int>>()));
 
             // Assert
             Assert.That(exception, Is.Not.Null);

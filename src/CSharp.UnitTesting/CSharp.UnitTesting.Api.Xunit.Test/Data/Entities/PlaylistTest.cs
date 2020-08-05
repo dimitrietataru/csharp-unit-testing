@@ -1,14 +1,16 @@
 ﻿using CSharp.UnitTesting.Api.Data.Entities;
+using CSharp.UnitTesting.Api.Data.Entities.Enums;
 using CSharp.UnitTesting.Api.Utils.DataFaker;
 using CSharp.UnitTesting.Api.Utils.DataFaker.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
 {
-    [Trait("xUnit", "Entity | Playlist")]
-    public class PlaylistTest
+    [Trait("xUnit + Default | Data | Entities", nameof(Playlist))]
+    public sealed class PlaylistTest
     {
         [Fact]
         internal void GivenPlaylistEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
@@ -17,7 +19,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
             IDataFaker dataFaker = new DataFaker();
 
             // Act
-            var playlists = dataFaker.FakePlaylist.Generate(count: 99);
+            var playlists = dataFaker.FakePlaylist.Generate(count: 10);
 
             // Assert
             playlists.ForEach(playlist =>
@@ -29,10 +31,13 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
                 Assert.NotNull(playlist.Description);
                 Assert.NotEmpty(playlist.Description);
                 Assert.InRange(playlist.Description.Length, 1, 100);
+                Assert.IsType<PlaylistAccessType>(playlist.AccessType);
                 Assert.InRange(playlist.CreatedAt, DateTime.UtcNow.AddDays(-365), DateTime.UtcNow);
                 Assert.NotNull(playlist.Videos);
-                Assert.NotEmpty(playlist.Videos);
                 Assert.IsAssignableFrom<IEnumerable<Video>>(playlist.Videos);
+                Assert.NotEmpty(playlist.Videos);
+                Assert.Equal(3, playlist.Videos.Count());
+                Assert.IsType<bool>(playlist.IsDeleted);
             });
         }
     }

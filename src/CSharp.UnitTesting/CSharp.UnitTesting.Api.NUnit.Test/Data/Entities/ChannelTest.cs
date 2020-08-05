@@ -6,8 +6,8 @@ using System.Collections.Generic;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Data.Entities
 {
-    [Property("NUnit", "Entity | Channel")]
-    public class ChannelTest
+    [Property("NUnit + Default | Data | Entities", nameof(Channel))]
+    public sealed class ChannelTest
     {
         [Test]
         public void GivenChannelEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
@@ -16,7 +16,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Data.Entities
             IDataFaker dataFaker = new DataFaker();
 
             // Act
-            var channels = dataFaker.FakeChannel.Generate(count: 99);
+            var channels = dataFaker.FakeChannel.Generate(count: 10);
 
             // Assert
             channels.ForEach(channel =>
@@ -33,14 +33,17 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Data.Entities
                 Assert.That(channel.Avatar, Is.Not.Empty);
                 Assert.That(channel.OwnerEmail, Is.Not.Null);
                 Assert.That(channel.OwnerEmail, Is.Not.Empty);
-                Assert.That(channel.OwnerEmail.Contains("@"));
+                Assert.That(channel.OwnerEmail, Does.Contain("@"));
                 Assert.That(channel.Subscriptions, Is.Not.Null);
-                Assert.That(channel.Subscriptions, Is.Not.Empty);
                 Assert.That(channel.Subscriptions, Is.InstanceOf<IEnumerable<Subscription>>());
+                Assert.That(channel.Subscriptions, Is.Not.Empty);
+                Assert.That(channel.Subscriptions, Has.Count.EqualTo(3));
                 Assert.That(channel.Videos, Is.Not.Null);
-                Assert.That(channel.Videos, Is.Not.Empty);
                 Assert.That(channel.Videos, Is.InstanceOf<IEnumerable<Video>>());
+                Assert.That(channel.Videos, Is.Not.Empty);
+                Assert.That(channel.Videos, Has.Count.EqualTo(3));
                 Assert.That(channel.IsDeleted, Is.Not.Null);
+                Assert.That(channel.IsDeleted, Is.TypeOf<bool>());
             });
         }
     }

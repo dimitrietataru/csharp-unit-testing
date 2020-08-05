@@ -6,12 +6,11 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
 {
-    [Property("NUnit | FluentAssertions", "Service | Subscription")]
-    public class SubscriptionServiceTest
+    [Property("NUnit + FluentAssertions | Services", nameof(SubscriptionService))]
+    public sealed class SubscriptionServiceTest
     {
         private readonly ISubscriptionService subscriptionService;
 
@@ -24,10 +23,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenGetAllAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.GetAllAsync();
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.GetAllAsync());
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();
@@ -37,10 +36,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenGetByIdAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.GetByIdAsync(It.IsAny<Guid>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.GetByIdAsync(It.IsAny<Guid>()));
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();
@@ -50,10 +49,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenGetByIdsAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.GetByIdsAsync(It.IsAny<IEnumerable<Guid>>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.GetByIdsAsync(It.IsAny<IEnumerable<Guid>>()));
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();
@@ -63,10 +62,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenGetByChannelIdAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.GetByChannelIdAsync(It.IsAny<int>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.GetByChannelIdAsync(It.IsAny<int>()));
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();
@@ -76,10 +75,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenCreateAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.CreateAsync(It.IsAny<Subscription>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.CreateAsync(It.IsAny<Subscription>()));
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();
@@ -89,10 +88,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenCreateBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.CreateBulkAsync(It.IsAny<IEnumerable<Subscription>>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.CreateBulkAsync(It.IsAny<IEnumerable<Subscription>>()));
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();
@@ -102,10 +101,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenUpdateAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.UpdateAsync(It.IsAny<Subscription>(), It.IsAny<Guid>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.UpdateAsync(It.IsAny<Subscription>(), It.IsAny<Guid>()));
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();
@@ -115,10 +114,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenUpdateBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.UpdateBulkAsync(It.IsAny<IEnumerable<Subscription>>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.UpdateBulkAsync(It.IsAny<IEnumerable<Subscription>>()));
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();
@@ -128,10 +127,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenDeleteAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.DeleteAsync(It.IsAny<Guid>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.DeleteAsync(It.IsAny<Guid>()));
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();
@@ -141,10 +140,10 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Services.FluentAssertions
         public void GivenDeleteBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await subscriptionService.DeleteBulkAsync(It.IsAny<IEnumerable<Guid>>());
 
             // Act
-            var exception = Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = Assert.ThrowsAsync<NotImplementedException>(
+                () => subscriptionService.DeleteBulkAsync(It.IsAny<IEnumerable<Guid>>()));
 
             // Assert
             exception.Should().NotBeNull().And.BeOfType<NotImplementedException>();

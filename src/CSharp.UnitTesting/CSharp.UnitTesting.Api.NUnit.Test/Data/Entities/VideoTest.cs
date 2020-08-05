@@ -1,12 +1,14 @@
-﻿using CSharp.UnitTesting.Api.Utils.DataFaker;
+﻿using CSharp.UnitTesting.Api.Data.Entities;
+using CSharp.UnitTesting.Api.Data.Entities.Enums;
+using CSharp.UnitTesting.Api.Utils.DataFaker;
 using CSharp.UnitTesting.Api.Utils.DataFaker.Interfaces;
 using NUnit.Framework;
 using System;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Data.Entities
 {
-    [Property("NUnit", "Entity | Video")]
-    public class VideoTest
+    [Property("NUnit + Default | Data | Entities", nameof(Video))]
+    public sealed class VideoTest
     {
         [Test]
         public void GivenVideoEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
@@ -15,7 +17,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Data.Entities
             IDataFaker dataFaker = new DataFaker();
 
             // Act
-            var videos = dataFaker.FakeVideo.Generate(count: 99);
+            var videos = dataFaker.FakeVideo.Generate(count: 10);
 
             // Assert
             videos.ForEach(video =>
@@ -32,11 +34,14 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Data.Entities
                 Assert.That(video.Thumbnail, Is.Not.Null);
                 Assert.That(video.Thumbnail, Is.Not.Empty);
                 Assert.That(video.AccessType, Is.Not.Null);
+                Assert.That(video.AccessType, Is.TypeOf<VideoAccessType>());
                 Assert.That(video.Url, Is.Not.Null);
                 Assert.That(video.Url, Is.Not.Empty);
                 Assert.That(video.PublishDate, Is.Not.Null);
-                Assert.That(video.PublishDate, Is.InRange(DateTime.UtcNow.AddDays(-365), DateTime.UtcNow));
+                Assert.That(video.PublishDate, Is.GreaterThanOrEqualTo(DateTime.UtcNow.AddDays(-365)));
+                Assert.That(video.PublishDate, Is.LessThanOrEqualTo(DateTime.UtcNow));
                 Assert.That(video.IsDeleted, Is.Not.Null);
+                Assert.That(video.IsDeleted, Is.TypeOf<bool>());
             });
         }
     }

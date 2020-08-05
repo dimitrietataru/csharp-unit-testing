@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
 {
-    [Property("NUnit", "Controller | Subscription")]
-    public class SubscriptionControllerTest
+    [Property("NUnit + Default | Controllers", nameof(SubscriptionController))]
+    public sealed class SubscriptionControllerTest
     {
-        private Mock<ISubscriptionService> mockSubscriptionService;
         private SubscriptionController subscriptionController;
+        private Mock<ISubscriptionService> mockSubscriptionService;
 
         [SetUp]
         public void Setup()
@@ -39,9 +39,8 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
 
             // Assert
             mockSubscriptionService.VerifyAll();
-            Assert.That(result, Is.InstanceOf<ObjectResult>());
-            var apiResponse = result as OkObjectResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That(result, Is.InstanceOf<OkObjectResult>());
+            Assert.That((result as OkObjectResult).StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -60,8 +59,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -80,8 +78,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<OkObjectResult>());
-            var apiResponse = result as OkObjectResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That((result as OkObjectResult).StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -100,8 +97,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<NotFoundResult>());
-            var apiResponse = result as NotFoundResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That((result as NotFoundResult).StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -120,8 +116,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -140,8 +135,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<OkObjectResult>());
-            var apiResponse = result as OkObjectResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That((result as OkObjectResult).StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -160,8 +154,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<NotFoundResult>());
-            var apiResponse = result as NotFoundResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That((result as NotFoundResult).StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -180,8 +173,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -200,8 +192,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<OkObjectResult>());
-            var apiResponse = result as OkObjectResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That((result as OkObjectResult).StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -220,8 +211,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<NotFoundResult>());
-            var apiResponse = result as NotFoundResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That((result as NotFoundResult).StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -240,8 +230,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -260,8 +249,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<CreatedResult>());
-            var apiResponse = result as CreatedResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
+            Assert.That((result as CreatedResult).StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
         }
 
         [Test]
@@ -280,8 +268,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -300,8 +287,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<CreatedResult>());
-            var apiResponse = result as CreatedResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
+            Assert.That((result as CreatedResult).StatusCode, Is.EqualTo((int)HttpStatusCode.Created));
         }
 
         [Test]
@@ -320,8 +306,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -340,8 +325,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<OkObjectResult>());
-            var apiResponse = result as OkObjectResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That((result as OkObjectResult).StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -360,8 +344,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<NotFoundResult>());
-            var apiResponse = result as NotFoundResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That((result as NotFoundResult).StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -380,8 +363,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -400,8 +382,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<OkObjectResult>());
-            var apiResponse = result as OkObjectResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
+            Assert.That((result as OkObjectResult).StatusCode, Is.EqualTo((int)HttpStatusCode.OK));
         }
 
         [Test]
@@ -420,8 +401,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<NotFoundResult>());
-            var apiResponse = result as NotFoundResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That((result as NotFoundResult).StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -440,8 +420,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -460,8 +439,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<NoContentResult>());
-            var apiResponse = result as NoContentResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NoContent));
+            Assert.That((result as NoContentResult).StatusCode, Is.EqualTo((int)HttpStatusCode.NoContent));
         }
 
         [Test]
@@ -480,8 +458,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<NotFoundResult>());
-            var apiResponse = result as NotFoundResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That((result as NotFoundResult).StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -500,8 +477,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
 
         [Test]
@@ -520,8 +496,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<NoContentResult>());
-            var apiResponse = result as NoContentResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NoContent));
+            Assert.That((result as NoContentResult).StatusCode, Is.EqualTo((int)HttpStatusCode.NoContent));
         }
 
         [Test]
@@ -540,8 +515,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<NotFoundResult>());
-            var apiResponse = result as NotFoundResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
+            Assert.That((result as NotFoundResult).StatusCode, Is.EqualTo((int)HttpStatusCode.NotFound));
         }
 
         [Test]
@@ -560,8 +534,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers
             // Assert
             mockSubscriptionService.VerifyAll();
             Assert.That(result, Is.InstanceOf<BadRequestResult>());
-            var apiResponse = result as BadRequestResult;
-            Assert.That(apiResponse.StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
+            Assert.That((result as BadRequestResult).StatusCode, Is.EqualTo((int)HttpStatusCode.BadRequest));
         }
     }
 }

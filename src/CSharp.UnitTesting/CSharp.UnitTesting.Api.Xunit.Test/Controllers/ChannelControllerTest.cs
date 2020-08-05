@@ -11,11 +11,11 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 {
-    [Trait("xUnit", "Controller | Channel")]
-    public class ChannelControllerTest
+    [Trait("xUnit + Default | Controllers", nameof(ChannelController))]
+    public sealed class ChannelControllerTest
     {
-        private readonly Mock<IChannelService> mockChannelService;
         private readonly ChannelController channelController;
+        private readonly Mock<IChannelService> mockChannelService;
 
         public ChannelControllerTest()
         {
@@ -38,8 +38,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<OkObjectResult>(result);
-            Assert.Equal((int)HttpStatusCode.OK, apiResponse.StatusCode);
+            Assert.IsType<OkObjectResult>(result);
+            Assert.Equal((int)HttpStatusCode.OK, (result as OkObjectResult).StatusCode);
         }
 
         [Fact]
@@ -57,8 +57,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
 
         [Fact]
@@ -76,8 +76,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<OkObjectResult>(result);
-            Assert.Equal((int)HttpStatusCode.OK, apiResponse.StatusCode);
+            Assert.IsType<OkObjectResult>(result);
+            Assert.Equal((int)HttpStatusCode.OK, (result as OkObjectResult).StatusCode);
         }
 
         [Fact]
@@ -95,8 +95,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<NotFoundResult>(result);
-            Assert.Equal((int)HttpStatusCode.NotFound, apiResponse.StatusCode);
+            Assert.IsType<NotFoundResult>(result);
+            Assert.Equal((int)HttpStatusCode.NotFound, (result as NotFoundResult).StatusCode);
         }
 
         [Fact]
@@ -114,8 +114,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
 
         [Fact]
@@ -133,8 +133,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<OkObjectResult>(result);
-            Assert.Equal((int)HttpStatusCode.OK, apiResponse.StatusCode);
+            Assert.IsType<OkObjectResult>(result);
+            Assert.Equal((int)HttpStatusCode.OK, (result as OkObjectResult).StatusCode);
         }
 
         [Fact]
@@ -152,8 +152,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<NotFoundResult>(result);
-            Assert.Equal((int)HttpStatusCode.NotFound, apiResponse.StatusCode);
+            Assert.IsType<NotFoundResult>(result);
+            Assert.Equal((int)HttpStatusCode.NotFound, (result as NotFoundResult).StatusCode);
         }
 
         [Fact]
@@ -171,8 +171,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
 
         [Fact]
@@ -190,8 +190,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<OkObjectResult>(result);
-            Assert.Equal((int)HttpStatusCode.OK, apiResponse.StatusCode);
+            Assert.IsType<OkObjectResult>(result);
+            Assert.Equal((int)HttpStatusCode.OK, (result as OkObjectResult).StatusCode);
         }
 
         [Fact]
@@ -209,8 +209,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<NotFoundResult>(result);
-            Assert.Equal((int)HttpStatusCode.NotFound, apiResponse.StatusCode);
+            Assert.IsType<NotFoundResult>(result);
+            Assert.Equal((int)HttpStatusCode.NotFound, (result as NotFoundResult).StatusCode);
         }
 
         [Fact]
@@ -228,8 +228,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
 
         [Fact]
@@ -247,8 +247,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<CreatedResult>(result);
-            Assert.Equal((int)HttpStatusCode.Created, apiResponse.StatusCode);
+            Assert.IsType<CreatedResult>(result);
+            Assert.Equal((int)HttpStatusCode.Created, (result as CreatedResult).StatusCode);
         }
 
         [Fact]
@@ -266,8 +266,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
 
         [Fact]
@@ -285,8 +285,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<CreatedResult>(result);
-            Assert.Equal((int)HttpStatusCode.Created, apiResponse.StatusCode);
+            Assert.IsType<CreatedResult>(result);
+            Assert.Equal((int)HttpStatusCode.Created, (result as CreatedResult).StatusCode);
         }
 
         [Fact]
@@ -304,8 +304,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
 
         [Fact]
@@ -323,8 +323,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<OkObjectResult>(result);
-            Assert.Equal((int)HttpStatusCode.OK, apiResponse.StatusCode);
+            Assert.IsType<OkObjectResult>(result);
+            Assert.Equal((int)HttpStatusCode.OK, (result as OkObjectResult).StatusCode);
         }
 
         [Fact]
@@ -342,8 +342,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<NotFoundResult>(result);
-            Assert.Equal((int)HttpStatusCode.NotFound, apiResponse.StatusCode);
+            Assert.IsType<NotFoundResult>(result);
+            Assert.Equal((int)HttpStatusCode.NotFound, (result as NotFoundResult).StatusCode);
         }
 
         [Fact]
@@ -361,8 +361,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
 
         [Fact]
@@ -380,8 +380,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<OkObjectResult>(result);
-            Assert.Equal((int)HttpStatusCode.OK, apiResponse.StatusCode);
+            Assert.IsType<OkObjectResult>(result);
+            Assert.Equal((int)HttpStatusCode.OK, (result as OkObjectResult).StatusCode);
         }
 
         [Fact]
@@ -399,8 +399,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<NotFoundResult>(result);
-            Assert.Equal((int)HttpStatusCode.NotFound, apiResponse.StatusCode);
+            Assert.IsType<NotFoundResult>(result);
+            Assert.Equal((int)HttpStatusCode.NotFound, (result as NotFoundResult).StatusCode);
         }
 
         [Fact]
@@ -418,8 +418,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
 
         [Fact]
@@ -437,8 +437,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<NoContentResult>(result);
-            Assert.Equal((int)HttpStatusCode.NoContent, apiResponse.StatusCode);
+            Assert.IsType<NoContentResult>(result);
+            Assert.Equal((int)HttpStatusCode.NoContent, (result as NoContentResult).StatusCode);
         }
 
         [Fact]
@@ -456,8 +456,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<NotFoundResult>(result);
-            Assert.Equal((int)HttpStatusCode.NotFound, apiResponse.StatusCode);
+            Assert.IsType<NotFoundResult>(result);
+            Assert.Equal((int)HttpStatusCode.NotFound, (result as NotFoundResult).StatusCode);
         }
 
         [Fact]
@@ -475,8 +475,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
 
         [Fact]
@@ -494,8 +494,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<NoContentResult>(result);
-            Assert.Equal((int)HttpStatusCode.NoContent, apiResponse.StatusCode);
+            Assert.IsType<NoContentResult>(result);
+            Assert.Equal((int)HttpStatusCode.NoContent, (result as NoContentResult).StatusCode);
         }
 
         [Fact]
@@ -513,8 +513,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<NotFoundResult>(result);
-            Assert.Equal((int)HttpStatusCode.NotFound, apiResponse.StatusCode);
+            Assert.IsType<NotFoundResult>(result);
+            Assert.Equal((int)HttpStatusCode.NotFound, (result as NotFoundResult).StatusCode);
         }
 
         [Fact]
@@ -532,8 +532,8 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers
 
             // Assert
             mockChannelService.VerifyAll();
-            var apiResponse = Assert.IsType<BadRequestResult>(result);
-            Assert.Equal((int)HttpStatusCode.BadRequest, apiResponse.StatusCode);
+            Assert.IsType<BadRequestResult>(result);
+            Assert.Equal((int)HttpStatusCode.BadRequest, (result as BadRequestResult).StatusCode);
         }
     }
 }

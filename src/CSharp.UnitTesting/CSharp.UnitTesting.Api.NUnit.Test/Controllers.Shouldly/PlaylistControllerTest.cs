@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
 {
-    [Property("NUnit | Shouldly", "Controller | Playlist")]
-    public class PlaylistControllerTest
+    [Property("NUnit + Shouldly | Controllers", nameof(PlaylistController))]
+    public sealed class PlaylistControllerTest
     {
-        private Mock<IPlaylistService> mockPlaylistService;
         private PlaylistController playlistController;
+        private Mock<IPlaylistService> mockPlaylistService;
 
         [SetUp]
         public void Setup()
@@ -41,6 +41,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -61,6 +62,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -81,6 +83,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -101,6 +104,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -121,6 +125,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -141,6 +146,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -161,6 +167,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -181,6 +188,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -201,6 +209,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<CreatedResult>(),
                 () => (result as CreatedResult).StatusCode.ShouldBe((int)HttpStatusCode.Created));
         }
@@ -221,6 +230,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -241,6 +251,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<CreatedResult>(),
                 () => (result as CreatedResult).StatusCode.ShouldBe((int)HttpStatusCode.Created));
         }
@@ -261,6 +272,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -281,6 +293,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -301,6 +314,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -321,6 +335,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -341,6 +356,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -361,6 +377,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -381,6 +398,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -401,6 +419,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NoContentResult>(),
                 () => (result as NoContentResult).StatusCode.ShouldBe((int)HttpStatusCode.NoContent));
         }
@@ -421,6 +440,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -441,6 +461,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -461,6 +482,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NoContentResult>(),
                 () => (result as NoContentResult).StatusCode.ShouldBe((int)HttpStatusCode.NoContent));
         }
@@ -481,6 +503,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -501,6 +524,7 @@ namespace CSharp.UnitTesting.Api.NUnit.Test.Controllers.Shouldly
             // Assert
             mockPlaylistService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }

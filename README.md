@@ -24,7 +24,7 @@
   - [coverlet.collector](https://www.nuget.org/packages/coverlet.collector)
   - [ReportGenerator](https://www.nuget.org/packages/ReportGenerator)
 - **Utils**
-  - [Bogus](https://www.nuget.org/packages/Bogus) *To be integrated..
+  - [Bogus](https://www.nuget.org/packages/Bogus)
   - [Shouldly](https://www.nuget.org/packages/shouldly)
   - [FluentAssertions](https://www.nuget.org/packages/FluentAssertions)
 
@@ -95,12 +95,12 @@ result.ShouldSatisfyAllConditions(
 
 #### Install *coverlet.collector* NuGet package
 ``` powershell
-PM> Install-Package coverlet.collector -Version 1.2.0
+PM> Install-Package coverlet.collector -Version 1.3.0
 ```
 
 #### *TestProject.csproj* configuration
 ``` xml
-<PackageReference Include="coverlet.collector" Version="1.2.0">
+<PackageReference Include="coverlet.collector" Version="1.3.0">
   <PrivateAssets>all</PrivateAssets>
   <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 </PackageReference>
@@ -125,7 +125,7 @@ PM> Install-Package coverlet.collector -Version 1.2.0
   <InProcDataCollectionRunSettings>
     <InProcDataCollectors>
       <InProcDataCollector
-        assemblyQualifiedName="Coverlet.Collector.DataCollection.CoverletInProcDataCollector, coverlet.collector, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null"
+        assemblyQualifiedName="Coverlet.Collector.DataCollection.CoverletInProcDataCollector, coverlet.collector, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null"
         friendlyName="XPlat Code Coverage"
         enabled="True"
         codebase="coverlet.collector.dll" />
@@ -136,16 +136,9 @@ PM> Install-Package coverlet.collector -Version 1.2.0
 
 #### Run tests and collect data
 ``` powershell
-# Template command for specific test project
-PM> dotnet test .\Specific.Test.Project --collect:"XPlat Code Coverage" --settings .\Specific.Test.Project\runsettings
-```
-``` powershell
-# Template command for all test projects
 PM> dotnet test --collect:"XPlat Code Coverage" --settings .\runsettings
-```
-``` powershell
-# CSharp.UnitTesting solution specific
-PM> dotnet test --collect:"XPlat Code Coverage" --settings runsettings_CSharpUnitTestingApi
+
+PM> dotnet test .\Specific.Test.Project --collect:"XPlat Code Coverage" --settings .\Specific.Test.Project\runsettings
 ```
 
 
@@ -153,20 +146,21 @@ PM> dotnet test --collect:"XPlat Code Coverage" --settings runsettings_CSharpUni
 
 #### Install *ReportGenerator* NuGet package
 ``` powershell
-PM> Install-Package ReportGenerator -Version 4.4.6
+PM> Install-Package ReportGenerator -Version 4.6.4
 ```
 
 #### Generate reports
 
-Use [ReportGenerator usage page](https://danielpalme.github.io/ReportGenerator/usage.html) to customize report sources, targets, format types, history, filters, or logging
+[ReportGenerator usage page](https://danielpalme.github.io/ReportGenerator/usage.html)
 
 ``` powershell
-PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\x.y.z\tools\netcoreapp2.1\ReportGenerator.dll "-reports:coverage.xml" "-targetdir:coveragereport" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\x.y.z\tools\netcoreapp3.0\ReportGenerator.dll "-reports:coverage.xml" "-targetdir:coveragereport" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\x.y.z\tools\netcoreapp3.0\ReportGenerator.dll "-reports:coverage.xml" "-targetdir:coveragereport" -reporttypes:Badges
 ```
 ``` powershell
 # CSharp.UnitTesting.Api NUnit
-PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.4.6\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Nunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\NUnit" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.6.4\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Nunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\NUnit" "-historydir:_CoverageReport\_History\Api\NUnit" -reporttypes:Html
 
 # CSharp.UnitTesting.Api xUnit
-PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.4.6\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Xunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\xUnit" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.6.4\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Xunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\xUnit" "-historydir:_CoverageReport\_History\Api\xUnit" -reporttypes:Html
 ```
