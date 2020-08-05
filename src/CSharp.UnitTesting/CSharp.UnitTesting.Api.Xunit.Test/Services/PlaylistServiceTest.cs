@@ -9,8 +9,8 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Services
 {
-    [Trait("xUnit", "Service | Playlist")]
-    public class PlaylistServiceTest
+    [Trait("xUnit + Default | Services", nameof(PlaylistService))]
+    public sealed class PlaylistServiceTest
     {
         private readonly IPlaylistService playlistService;
 
@@ -23,10 +23,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenGetAllAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await playlistService.GetAllAsync();
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => playlistService.GetAllAsync());
 
             // Assert
             Assert.NotNull(exception);
@@ -37,10 +37,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenGetByIdAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await playlistService.GetByIdAsync(It.IsAny<Guid>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => playlistService.GetByIdAsync(It.IsAny<Guid>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -51,10 +51,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenGetByIdsAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await playlistService.GetByIdsAsync(It.IsAny<IEnumerable<Guid>>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => playlistService.GetByIdsAsync(It.IsAny<IEnumerable<Guid>>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -65,10 +65,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenCreateAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await playlistService.CreateAsync(It.IsAny<Playlist>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => playlistService.CreateAsync(It.IsAny<Playlist>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -79,10 +79,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenCreateBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await playlistService.CreateBulkAsync(It.IsAny<IEnumerable<Playlist>>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => playlistService.CreateBulkAsync(It.IsAny<IEnumerable<Playlist>>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -93,10 +93,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenUpdateAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await playlistService.UpdateAsync(It.IsAny<Playlist>(), It.IsAny<Guid>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => playlistService.UpdateAsync(It.IsAny<Playlist>(), It.IsAny<Guid>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -107,10 +107,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenUpdateBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await playlistService.UpdateBulkAsync(It.IsAny<IEnumerable<Playlist>>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => playlistService.UpdateBulkAsync(It.IsAny<IEnumerable<Playlist>>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -121,10 +121,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenDeleteAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await playlistService.DeleteAsync(It.IsAny<Guid>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => playlistService.DeleteAsync(It.IsAny<Guid>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -135,10 +135,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenDeleteBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await playlistService.DeleteBulkAsync(It.IsAny<IEnumerable<Guid>>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => playlistService.DeleteBulkAsync(It.IsAny<IEnumerable<Guid>>()));
 
             // Assert
             Assert.NotNull(exception);

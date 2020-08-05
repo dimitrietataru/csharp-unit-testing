@@ -9,8 +9,8 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Services
 {
-    [Trait("xUnit", "Service | Video")]
-    public class VideoServiceTest
+    [Trait("xUnit + Default | Services", nameof(VideoService))]
+    public sealed class VideoServiceTest
     {
         private readonly IVideoService videoService;
 
@@ -23,10 +23,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenGetAllAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.GetAllAsync();
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.GetAllAsync());
 
             // Assert
             Assert.NotNull(exception);
@@ -37,10 +37,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenGetByIdAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.GetByIdAsync(It.IsAny<Guid>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.GetByIdAsync(It.IsAny<Guid>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -51,10 +51,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenGetByIdsAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.GetByIdsAsync(It.IsAny<IEnumerable<Guid>>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.GetByIdsAsync(It.IsAny<IEnumerable<Guid>>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -65,10 +65,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenGetByChannelIdAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.GetByChannelIdAsync(It.IsAny<int>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.GetByChannelIdAsync(It.IsAny<int>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -79,10 +79,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenCreateAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.CreateAsync(It.IsAny<Video>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.CreateAsync(It.IsAny<Video>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -93,10 +93,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenCreateBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.CreateBulkAsync(It.IsAny<IEnumerable<Video>>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.CreateBulkAsync(It.IsAny<IEnumerable<Video>>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -107,10 +107,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenUpdateAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.UpdateAsync(It.IsAny<Video>(), It.IsAny<Guid>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.UpdateAsync(It.IsAny<Video>(), It.IsAny<Guid>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -121,10 +121,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenUpdateBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.UpdateBulkAsync(It.IsAny<IEnumerable<Video>>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.UpdateBulkAsync(It.IsAny<IEnumerable<Video>>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -135,10 +135,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenDeleteAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.DeleteAsync(It.IsAny<Guid>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.DeleteAsync(It.IsAny<Guid>()));
 
             // Assert
             Assert.NotNull(exception);
@@ -149,10 +149,10 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Services
         internal async Task GivenDeleteBulkAsyncWhenExpectedExceptionIsThrownThenHandlesGracefully()
         {
             // Arrange
-            async Task action() => await videoService.DeleteBulkAsync(It.IsAny<IEnumerable<Guid>>());
 
             // Act
-            var exception = await Assert.ThrowsAsync<NotImplementedException>(action);
+            var exception = await Assert.ThrowsAsync<NotImplementedException>(
+                () => videoService.DeleteBulkAsync(It.IsAny<IEnumerable<Guid>>()));
 
             // Assert
             Assert.NotNull(exception);
