@@ -12,11 +12,11 @@ using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
 {
-    [Trait("xUnit | Shouldly", "Controller | Subscription")]
-    public class SubscriptionControllerTest
+    [Trait("xUnit + Shouldly | Controllers", nameof(SubscriptionController))]
+    public sealed class SubscriptionControllerTest
     {
-        private readonly Mock<ISubscriptionService> mockSubscriptionService;
         private readonly SubscriptionController subscriptionController;
+        private readonly Mock<ISubscriptionService> mockSubscriptionService;
 
         public SubscriptionControllerTest()
         {
@@ -40,6 +40,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -60,6 +61,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -80,6 +82,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -100,6 +103,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -120,6 +124,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -140,6 +145,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -160,6 +166,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -180,6 +187,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -200,6 +208,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -220,6 +229,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -240,6 +250,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -260,6 +271,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<CreatedResult>(),
                 () => (result as CreatedResult).StatusCode.ShouldBe((int)HttpStatusCode.Created));
         }
@@ -280,6 +292,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -300,6 +313,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<CreatedResult>(),
                 () => (result as CreatedResult).StatusCode.ShouldBe((int)HttpStatusCode.Created));
         }
@@ -320,6 +334,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -340,6 +355,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -360,6 +376,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -380,6 +397,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -400,6 +418,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<OkObjectResult>(),
                 () => (result as OkObjectResult).StatusCode.ShouldBe((int)HttpStatusCode.OK));
         }
@@ -420,6 +439,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -440,6 +460,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -460,6 +481,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NoContentResult>(),
                 () => (result as NoContentResult).StatusCode.ShouldBe((int)HttpStatusCode.NoContent));
         }
@@ -480,6 +502,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -500,6 +523,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
@@ -540,6 +564,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<NotFoundResult>(),
                 () => (result as NotFoundResult).StatusCode.ShouldBe((int)HttpStatusCode.NotFound));
         }
@@ -560,6 +585,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Controllers.Shouldly
             // Assert
             mockSubscriptionService.VerifyAll();
             result.ShouldSatisfyAllConditions(
+                () => result.ShouldNotBeNull(),
                 () => result.ShouldBeOfType<BadRequestResult>(),
                 () => (result as BadRequestResult).StatusCode.ShouldBe((int)HttpStatusCode.BadRequest));
         }
