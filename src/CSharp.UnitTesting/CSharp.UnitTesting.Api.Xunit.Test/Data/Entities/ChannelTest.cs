@@ -2,12 +2,13 @@
 using CSharp.UnitTesting.Api.Utils.DataFaker;
 using CSharp.UnitTesting.Api.Utils.DataFaker.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
 {
-    [Trait("xUnit", "Entity | Channel")]
-    public class ChannelTest
+    [Trait("xUnit + Default | Data | Entities", nameof(Channel))]
+    public sealed class ChannelTest
     {
         [Fact]
         internal void GivenChannelEntityWhenGeneratedWithDataFakerThenVerifyAllProperties()
@@ -16,7 +17,7 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
             IDataFaker dataFaker = new DataFaker();
 
             // Act
-            var channels = dataFaker.FakeChannel.Generate(count: 99);
+            var channels = dataFaker.FakeChannel.Generate(count: 10);
 
             // Assert
             channels.ForEach(channel =>
@@ -34,11 +35,14 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities
                 Assert.NotEmpty(channel.OwnerEmail);
                 Assert.Contains('@', channel.OwnerEmail);
                 Assert.NotNull(channel.Subscriptions);
-                Assert.NotEmpty(channel.Subscriptions);
                 Assert.IsAssignableFrom<IEnumerable<Subscription>>(channel.Subscriptions);
+                Assert.NotEmpty(channel.Subscriptions);
+                Assert.Equal(3, channel.Subscriptions.Count());
                 Assert.NotNull(channel.Videos);
-                Assert.NotEmpty(channel.Videos);
                 Assert.IsAssignableFrom<IEnumerable<Video>>(channel.Videos);
+                Assert.NotEmpty(channel.Videos);
+                Assert.Equal(3, channel.Videos.Count());
+                Assert.IsType<bool>(channel.IsDeleted);
             });
         }
     }
