@@ -159,8 +159,8 @@ PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\x.y.z\tools\netcoreapp
 ```
 ``` powershell
 # CSharp.UnitTesting.Api NUnit
-PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.6.4\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Nunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\NUnit" "-historydir:_CoverageReport\_History\Api\NUnit" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.6.7\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Nunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\NUnit" "-historydir:_CoverageReport\_History\Api\NUnit" -reporttypes:Html
 
 # CSharp.UnitTesting.Api xUnit
-PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.6.4\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Xunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\xUnit" "-historydir:_CoverageReport\_History\Api\xUnit" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.6.7\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Xunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\xUnit" "-historydir:_CoverageReport\_History\Api\xUnit" -reporttypes:Html
 ```
