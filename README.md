@@ -49,13 +49,13 @@ PM> Install-Package xunit.runner.visualstudio -Version 2.4.3
 
 ## Syntax
 
-#### Given-When-Then pattern
+### Given-When-Then pattern
 [Martin Fowler's blog](https://www.martinfowler.com/bliki/GivenWhenThen.html)
 
-#### Arrange-Act-Assert pattern
+### Arrange-Act-Assert pattern
 [Docs.Microsoft](https://docs.microsoft.com/en-us/visualstudio/test/unit-test-basics?view=vs-2019#write-your-tests)
 
-#### Moq setup and verify
+### Moq setup and verify
 
 ``` csharp
 // Setup async method when it returns data
@@ -85,7 +85,7 @@ mockService.Verify(_ => _.RunAsync(), Times.Exactly(2));
 mockService.Verify(_ => _.RunAsync(It.IsAny<int>()), Times.Never);
 ```
 
-#### Assertions
+### Assertions
 
 ``` csharp
 // NUnit
@@ -111,12 +111,12 @@ result.ShouldSatisfyAllConditions(
 
 ## Collect code coverage
 
-#### Install *coverlet.collector* NuGet package
+### Install *coverlet.collector* NuGet package
 ``` powershell
 PM> Install-Package coverlet.collector -Version 1.3.0
 ```
 
-#### *TestProject.csproj* configuration
+### *TestProject.csproj* configuration
 ``` xml
 <PackageReference Include="coverlet.collector" Version="1.3.0">
   <PrivateAssets>all</PrivateAssets>
@@ -124,7 +124,7 @@ PM> Install-Package coverlet.collector -Version 1.3.0
 </PackageReference>
 ```
 
-#### Collector configuration. Add a file (e.g. *runsettings*) anywhere in the solution/project
+### Collector configuration. Add a file (e.g. *runsettings*) anywhere in the solution/project
 ```  xml
 <?xml version="1.0" encoding="utf-8" ?>
 <RunSettings>
@@ -152,7 +152,7 @@ PM> Install-Package coverlet.collector -Version 1.3.0
 </RunSettings>
 ```
 
-#### Run tests and collect data
+### Run tests and collect data
 ``` powershell
 PM> dotnet test --collect:"XPlat Code Coverage" --settings .\runsettings
 
@@ -162,12 +162,12 @@ PM> dotnet test .\Specific.Test.Project --collect:"XPlat Code Coverage" --settin
 
 ## Generate Code Coverage Report
 
-#### Install *ReportGenerator* NuGet package
+### Install *ReportGenerator* NuGet package
 ``` powershell
 PM> Install-Package ReportGenerator -Version 4.6.4
 ```
 
-#### Generate reports
+### Generate reports
 
 [ReportGenerator usage page](https://danielpalme.github.io/ReportGenerator/usage.html)
 
