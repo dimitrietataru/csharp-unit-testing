@@ -28,6 +28,24 @@
   - [Shouldly](https://www.nuget.org/packages/shouldly)
   - [FluentAssertions](https://www.nuget.org/packages/FluentAssertions)
 
+``` powershell
+PM> Install-Package Bogus -Version 31.0.3
+PM> Install-Package coverlet.collector -Version 1.3.0
+PM> Install-Package FluentAssertions -Version 5.10.3
+PM> Install-Package Microsoft.NET.Test.Sdk -Version 16.7.1
+PM> Install-Package Moq -Version 4.14.7
+PM> Install-Package ReportGenerator -Version 4.7.1
+PM> Install-Package Shouldly -Version 3.0.2
+
+# NUnit
+PM> Install-Package NUnit -Version 3.12.0
+PM> Install-Package NUnit3TestAdapter -Version 3.17.0
+
+# xUnit
+PM> Install-Package xunit -Version 2.4.1
+PM> Install-Package xunit.runner.visualstudio -Version 2.4.3
+```
+
 
 ## Syntax
 
@@ -159,8 +177,8 @@ PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\x.y.z\tools\netcoreapp
 ```
 ``` powershell
 # CSharp.UnitTesting.Api NUnit
-PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.6.7\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Nunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\NUnit" "-historydir:_CoverageReport\_History\Api\NUnit" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.7.1\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Nunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\NUnit" "-historydir:_CoverageReport\_History\Api\NUnit" -reporttypes:Html
 
 # CSharp.UnitTesting.Api xUnit
-PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.6.7\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Xunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\xUnit" "-historydir:_CoverageReport\_History\Api\xUnit" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.7.1\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Xunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\xUnit" "-historydir:_CoverageReport\_History\Api\xUnit" -reporttypes:Html
 ```
