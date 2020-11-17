@@ -22,15 +22,12 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.Shouldly
             // Assert
             subscriptions.ForEach(
                 subscription => subscription.ShouldSatisfyAllConditions(
-                    () => subscription.Id.ShouldNotBeNull(),
                     () => subscription.Id.ShouldNotBe(Guid.Empty),
-                    () => subscription.ChannelId.ShouldNotBeNull(),
                     () => subscription.ChannelId.ShouldBeGreaterThanOrEqualTo(1),
                     () => subscription.UserEmail.ShouldNotBeNullOrEmpty(),
                     () => subscription.UserEmail.ShouldContain('@'),
                     () => subscription.SubscribedAt.ShouldBeGreaterThanOrEqualTo(DateTime.UtcNow.AddDays(-365)),
                     () => subscription.SubscribedAt.ShouldBeLessThanOrEqualTo(DateTime.UtcNow),
-                    () => subscription.IsDeleted.ShouldNotBeNull(),
                     () => subscription.IsDeleted.ShouldBeOneOf(true, false)));
         }
     }
