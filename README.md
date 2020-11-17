@@ -33,9 +33,9 @@ PM> Install-Package Bogus -Version 31.0.3
 PM> Install-Package coverlet.collector -Version 1.3.0
 PM> Install-Package FluentAssertions -Version 5.10.3
 PM> Install-Package Microsoft.NET.Test.Sdk -Version 16.7.1
-PM> Install-Package Moq -Version 4.14.7
-PM> Install-Package ReportGenerator -Version 4.7.1
-PM> Install-Package Shouldly -Version 3.0.2
+PM> Install-Package Moq -Version 4.15.1
+PM> Install-Package ReportGenerator -Version 4.8.0
+PM> Install-Package Shouldly -Version 4.0.0
 
 # NUnit
 PM> Install-Package NUnit -Version 3.12.0
@@ -164,7 +164,7 @@ PM> dotnet test .\Specific.Test.Project --collect:"XPlat Code Coverage" --settin
 
 ### Install *ReportGenerator* NuGet package
 ``` powershell
-PM> Install-Package ReportGenerator -Version 4.6.4
+PM> Install-Package ReportGenerator -Version 4.8.0
 ```
 
 ### Generate reports
@@ -177,8 +177,8 @@ PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\x.y.z\tools\netcoreapp
 ```
 ``` powershell
 # CSharp.UnitTesting.Api NUnit
-PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.7.1\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Nunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\NUnit" "-historydir:_CoverageReport\_History\Api\NUnit" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.0.0\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Nunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\NUnit" "-historydir:_CoverageReport\_History\Api\NUnit" -reporttypes:Html
 
 # CSharp.UnitTesting.Api xUnit
-PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.7.1\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Xunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\xUnit" "-historydir:_CoverageReport\_History\Api\xUnit" -reporttypes:Html
+PM> dotnet $(UserProfile)\.nuget\packages\reportgenerator\4.8.0\tools\netcoreapp3.0\ReportGenerator.dll "-reports:CSharp.UnitTesting.Api.Xunit.Test\TestResults\*\coverage.cobertura.xml" "-targetdir:_CoverageReport\Api\xUnit" "-historydir:_CoverageReport\_History\Api\xUnit" -reporttypes:Html
 ```

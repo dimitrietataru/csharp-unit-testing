@@ -23,7 +23,6 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.Shouldly
             // Assert
             channels.ForEach(
                 channel => channel.ShouldSatisfyAllConditions(
-                    () => channel.Id.ShouldNotBeNull(),
                     () => channel.Id.ShouldBeGreaterThanOrEqualTo(1),
                     () => channel.Name.ShouldNotBeNullOrEmpty(),
                     () => channel.Name.Length.ShouldBeInRange(1, 50),
@@ -41,7 +40,6 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.Shouldly
                     () => channel.Videos.ShouldBeAssignableTo<IEnumerable<Video>>(),
                     () => channel.Videos.ShouldNotBeEmpty(),
                     () => channel.Videos.Count().ShouldBe(3),
-                    () => channel.IsDeleted.ShouldNotBeNull(),
                     () => channel.IsDeleted.ShouldBeOneOf(true, false)));
         }
     }

@@ -25,22 +25,18 @@ namespace CSharp.UnitTesting.Api.Xunit.Test.Data.Entities.Shouldly
             // Assert
             playlists.ForEach(
                 playlist => playlist.ShouldSatisfyAllConditions(
-                    () => playlist.Id.ShouldNotBeNull(),
                     () => playlist.Id.ShouldNotBe(Guid.Empty),
                     () => playlist.Name.ShouldNotBeNullOrEmpty(),
                     () => playlist.Name.Length.ShouldBeInRange(1, 50),
                     () => playlist.Description.ShouldNotBeNullOrEmpty(),
                     () => playlist.Description.Length.ShouldBeInRange(1, 100),
-                    () => playlist.AccessType.ShouldNotBeNull(),
                     () => playlist.AccessType.ShouldBeOfType<PlaylistAccessType>(),
-                    () => playlist.CreatedAt.ShouldNotBeNull(),
                     () => playlist.CreatedAt.ShouldBeGreaterThanOrEqualTo(DateTime.UtcNow.AddDays(-365)),
                     () => playlist.CreatedAt.ShouldBeLessThanOrEqualTo(DateTime.UtcNow),
                     () => playlist.Videos.ShouldNotBeNull(),
                     () => playlist.Videos.ShouldNotBeEmpty(),
                     () => playlist.Videos.ShouldBeAssignableTo<IEnumerable<Video>>(),
                     () => playlist.Videos.Count().ShouldBe(3),
-                    () => playlist.IsDeleted.ShouldNotBeNull(),
                     () => playlist.IsDeleted.ShouldBeOneOf(true, false)));
         }
     }
