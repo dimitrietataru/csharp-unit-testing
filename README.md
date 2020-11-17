@@ -32,10 +32,10 @@
 PM> Install-Package Bogus -Version 31.0.3
 PM> Install-Package coverlet.collector -Version 1.3.0
 PM> Install-Package FluentAssertions -Version 5.10.3
-PM> Install-Package Microsoft.NET.Test.Sdk -Version 16.7.1
+PM> Install-Package Microsoft.NET.Test.Sdk -Version 16.8.0
 PM> Install-Package Moq -Version 4.15.1
 PM> Install-Package ReportGenerator -Version 4.8.0
-PM> Install-Package Shouldly -Version 4.0.0
+PM> Install-Package Shouldly -Version 4.0.1
 
 # NUnit
 PM> Install-Package NUnit -Version 3.12.0
